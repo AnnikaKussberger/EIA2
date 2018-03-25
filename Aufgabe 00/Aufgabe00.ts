@@ -1,7 +1,8 @@
 function Begruessung() {
-  var name = prompt("Bitte Name eingeben", "");
+  var name = prompt("Wie heißt du?", "");
   if (name != null) {
-    document.getElementById("Type").innerHTML =
-      "Hallo " + name + "! Herzlich Willkommen auf der Mini-Website.";
+    document.getElementById("Html").innerHTML =
+      "Hallo " + name + "! Willkommen auf meiner Webseite :)";
   }
+    
 }
