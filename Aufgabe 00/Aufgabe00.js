@@ -1,4 +1,4 @@
-function Begruessung() {
+function begruessung() {
     var name = prompt("Wie heißt du?", "");
     if (name != null) {
         document.getElementById("Html").innerHTML =
