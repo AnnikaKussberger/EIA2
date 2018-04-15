@@ -63,7 +63,7 @@ h2 {
 .card {
   height: 175px;
   width: 175px;
-  border-radius: 5px;
+ /* border-radius: 5px;*/
   margin: 0px 20px 20px 0px;
   cursor: pointer;
   text-align: center;
@@ -83,7 +83,7 @@ h2 {
   bottom: 0;
   right: 0;
   background: #d9f489;
-  border-radius: 5px;
+ /* border-radius: 5px;*/
   transition: all 1s ease;
   transform: rotateY(180deg);
   -webkit-transform-style: preserve-3d;
