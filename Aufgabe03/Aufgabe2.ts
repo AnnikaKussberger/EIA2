@@ -8,31 +8,25 @@ namespace Memorie {
  // Array mit dem Inhalt der Karten
     let cardContent: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"];
    
-    //Leerer Array in den spÃ¤ter teile des Inhalts gespeichert werden
+    //Leerer Array in den später teile des Inhalts gespeichert werden
     let cardArray: string[] = [];
     
-    // Leerer Array der spter mit dem Inhalt des Scores zu befÃ¼llen
+    // Leerer Array der später mit dem Inhalt des Scores zu befÃ¼llen
     let player: string[] = [];
     let score: number[] = [0,0,0,0];// derzeit score schon fest definiert als 0
 
 
 
-    // Funktion um den Status der Karten zu mischen: mÃ¶glich hidden, visible und taken
+    // Funktion um den Status der Karten zu mischen: möglich hidden, visible und taken
     function mixStatus(): string {  //Name der Funktion, Typ-Annotation
-        let randomState: number = Math.random(); //Variable randomState erstellt, Math random gibt zufÃ¤llige Zahl zwische 0 und 1
-        if (randomState >= 0.75) { 
-            return "visible";// wenn math random grÃ¶ÃŸer gleich 0.75 ausgibt, soll die Karte visible sein
-        } else if (randomState > 0.5 && randomState < 0.75) {
-            return "taken";//wenn math.random zwischen 0.5 und 0.75 ist soll die Karte taken sein
-        }
-        return "hidden";// ansonsten, also von 0-0.5 soll die Karte hidden sein
+        return "hidden";            // ansonsten, also von 0-0.5 soll die Karte hidden sein
     }
 
   function shuffleCardArray(): void { // Name der Funktion, Typ-Annotoation, Array cardContent wird durchgemischt
         let i: number = cardArray.length; // Variable i initialisiert, i ist so groÃŸ wie der Array, also 15
         let j: number = 0; // Variable initialsisiert, Wert ist 0
         let temp: string = ""; // Variable definiert, typ string, kein Inhalt bisher
-        while(--i > 0) // wenn i grÃ¶ÃŸer als 0 ist wird die Schleife ausgefÃ¼hrt, wird nach durchlauf runtergezÃ¤hlt
+        while(--i > 0) // wenn i größer als 0 ist wird die Schleife ausgefÃ¼hrt, wird nach durchlauf runtergezÃ¤hlt
             j = Math.floor(Math.random() * (i+1));
             temp = cardArray[j]; // 
             cardArray[j] = cardArray[i];
@@ -43,12 +37,12 @@ namespace Memorie {
     function createBoard(): void {                  // Spielfeld wird erzeugt
         let node: any = document.getElementById("Spielfeld"); // neue Variable node, Aufruf der ID im Html Dokument
         shuffleCardArray();                         // Funktion ShuffleCardArry wird aufgerufen dass bei jedem Spiel neu gemischt wird
-        let childNodeHTML: string = "";             // neue Funktion initialisiert
+        let childNodeHTML: string = "";             // neue variable initialisiert
         childNodeHTML += "<h2>Memoryboard</h2>"; // h2 wird im HTML erzeugt
         childNodeHTML += "<div>";                   // div wird im html erzeugt
         for (let i: number = 0; i < cardArray.length; i++) {// Schleife lÃ¤uft so lange durch , bis i(zu beginn 0) so groÃŸ ist wie die LÃ¤nge des Arrays. I wird nach jedem Durchlauf 1 hochgezÃ¤hlt
             childNodeHTML += "<div>";            // im html wird ein div erzeugt
-            childNodeHTML += "<div class=\"";    // Klasse fÃ¼r css einbindung
+            childNodeHTML += "<div id= "+ i +" attr = "+ i +" class =";
             childNodeHTML += mixStatus();        // Aufruf der Funktion die den Status erzeugt (hidden, taken, visible)
             childNodeHTML += "\">";                 
             childNodeHTML += cardArray[i];       //card Array wird aufgerufen
@@ -86,7 +80,7 @@ namespace Memorie {
         // Anzahl der Spieler ermitteln
         let i: boolean = true; // initialisierung von i, ist true
         while (i) { // wÃ¤hrend i wahr ist
-            numPlayer = parseInt(prompt("Bitte wÃ¤hlen Sie zwischen 1 und 4 Spielern"), 10); // popup wird erstellt, 
+            numPlayer = parseInt(prompt("Bitte wählen Sie zwischen 1 und 4 Spielern"), 10); // popup wird erstellt, 
             if (numPlayer >= 1 && numPlayer <= 4) { // wenn eine Zahl kleiner als 1 oder grÃ¶ÃŸer als 4eingegeben wird
                 i = false;                          // i wird unwahr
             } // Schleife stoppt

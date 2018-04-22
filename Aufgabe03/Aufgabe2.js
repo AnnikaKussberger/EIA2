@@ -7,20 +7,13 @@ var Memorie;
     let numPairs = 0;
     // Array mit dem Inhalt der Karten
     let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"];
-    //Leerer Array in den spÃ¤ter teile des Inhalts gespeichert werden
+    //Leerer Array in den später teile des Inhalts gespeichert werden
     let cardArray = [];
-    // Leerer Array der spter mit dem Inhalt des Scores zu befÃ¼llen
+    // Leerer Array der später mit dem Inhalt des Scores zu befÃ¼llen
     let player = [];
     let score = [0, 0, 0, 0]; // derzeit score schon fest definiert als 0
-    // Funktion um den Status der Karten zu mischen: mÃ¶glich hidden, visible und taken
+    // Funktion um den Status der Karten zu mischen: möglich hidden, visible und taken
     function mixStatus() {
-        let randomState = Math.random(); //Variable randomState erstellt, Math random gibt zufÃ¤llige Zahl zwische 0 und 1
-        if (randomState >= 0.75) {
-            return "visible"; // wenn math random grÃ¶ÃŸer gleich 0.75 ausgibt, soll die Karte visible sein
-        }
-        else if (randomState > 0.5 && randomState < 0.75) {
-            return "taken"; //wenn math.random zwischen 0.5 und 0.75 ist soll die Karte taken sein
-        }
         return "hidden"; // ansonsten, also von 0-0.5 soll die Karte hidden sein
     }
     function shuffleCardArray() {
@@ -36,12 +29,12 @@ var Memorie;
     function createBoard() {
         let node = document.getElementById("Spielfeld"); // neue Variable node, Aufruf der ID im Html Dokument
         shuffleCardArray(); // Funktion ShuffleCardArry wird aufgerufen dass bei jedem Spiel neu gemischt wird
-        let childNodeHTML = ""; // neue Funktion initialisiert
+        let childNodeHTML = ""; // neue variable initialisiert
         childNodeHTML += "<h2>Memoryboard</h2>"; // h2 wird im HTML erzeugt
         childNodeHTML += "<div>"; // div wird im html erzeugt
         for (let i = 0; i < cardArray.length; i++) {
             childNodeHTML += "<div>"; // im html wird ein div erzeugt
-            childNodeHTML += "<div class=\""; // Klasse fÃ¼r css einbindung
+            childNodeHTML += "<div id= " + i + " attr = " + i + " class =";
             childNodeHTML += mixStatus(); // Aufruf der Funktion die den Status erzeugt (hidden, taken, visible)
             childNodeHTML += "\">";
             childNodeHTML += cardArray[i]; //card Array wird aufgerufen
@@ -75,7 +68,7 @@ var Memorie;
         // Anzahl der Spieler ermitteln
         let i = true; // initialisierung von i, ist true
         while (i) {
-            numPlayer = parseInt(prompt("Bitte wÃ¤hlen Sie zwischen 1 und 4 Spielern"), 10); // popup wird erstellt, 
+            numPlayer = parseInt(prompt("Bitte wählen Sie zwischen 1 und 4 Spielern"), 10); // popup wird erstellt, 
             if (numPlayer >= 1 && numPlayer <= 4) {
                 i = false; // i wird unwahr
             } // Schleife stoppt
