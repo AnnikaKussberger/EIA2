@@ -4,10 +4,11 @@ var Memory;
     let numPlayer = 0; //Anzahl Spieler
     let numPairs = 0; //Anzahl Kartenpaare
     let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]; // Array mit dem Inhalt der Karten
-    let cardArray = []; //Leerer Array in den spÃ¤ter teile des Inhalts gespeichert werden
+    let cardArray = []; //Leerer Array in den später teile des Inhalts gespeichert werden
     let player = []; // Leerer Array der spÃ¤ter mit dem Inhalt des Scores zu befÃƒÂ¼llen
     let score = [0, 0, 0, 0]; // derzeit score schon fest definiert als 0
-    // Funktion um den Status der Karten zu mischen: mÃ¶glich hidden, visible und taken
+    let g = 0; // Variable die hochgezählt wird um später mit der Anzahl Paare verglichen zu werden zur Gratulationb
+    // Funktion um den Status der Karten zu mischen: möglich hidden, visible und taken
     function mixStatus() {
         return "hidden"; // ansonsten, also von 0-0.5 soll die Karte hidden sein
     }
@@ -36,7 +37,7 @@ var Memory;
             childNodeHTML += "</div></div>"; // divs werden geschlossen
         }
         childNodeHTML += "</div>"; // groÃƒÅ¸es Spielfeld wird geschlossen
-        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befÃƒÂ¼llen 
+        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befüllen 
         console.log(childNodeHTML); //Ausgabe von childNodeHTML auf der Konsole
     }
     function playerInfo() {
@@ -57,6 +58,11 @@ var Memory;
         childNodeHTML += "</div>"; // div des Playerinfofelds wird geschlossen
         node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befÃƒÂ¼llen 
         console.log(childNodeHTML); // Auagabe von childNodeHTML uaf der Konsole
+    }
+    function congratulation() {
+        if (g == numPairs) {
+            alert("Glückwunsch, du hast das Memory erfolgreich beendet");
+        }
     }
     function main() {
         console.log("main"); // Ausgabe "main" auf der Konsole

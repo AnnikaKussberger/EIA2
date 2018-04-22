@@ -7,15 +7,15 @@ namespace Memory {
  
     let cardContent: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]; // Array mit dem Inhalt der Karten
      
-    let cardArray: string[] = []; //Leerer Array in den spÃ¤ter teile des Inhalts gespeichert werden
+    let cardArray: string[] = []; //Leerer Array in den später teile des Inhalts gespeichert werden
     
     
     let player: string[] = []; // Leerer Array der spÃ¤ter mit dem Inhalt des Scores zu befÃƒÂ¼llen
     let score: number[] = [0,0,0,0];// derzeit score schon fest definiert als 0
 
+    let g: number = 0; // Variable die hochgezählt wird um später mit der Anzahl Paare verglichen zu werden zur Gratulationb
 
-
-    // Funktion um den Status der Karten zu mischen: mÃ¶glich hidden, visible und taken
+    // Funktion um den Status der Karten zu mischen: möglich hidden, visible und taken
     function mixStatus(): string {  //Name der Funktion, Typ-Annotation
         return "hidden";            // ansonsten, also von 0-0.5 soll die Karte hidden sein
     }
@@ -24,7 +24,7 @@ namespace Memory {
         let i: number = cardArray.length; // Variable i initialisiert, i ist so groÃƒÅ¸ wie der Array, also 15
         let j: number = 0; // Variable initialsisiert, Wert ist 0
         let temp: string = ""; // Variable definiert, typ string, kein Inhalt bisher
-        while(--i > 0) // wenn i grÃ¶ÃŸer als 0 ist wird die Schleife ausgefÃƒÂ¼hrt, wird nach durchlauf runtergezÃƒÂ¤hlt
+        while(--i > 0) // wenn i größer als 0 ist wird die Schleife ausgeführt, wird nach durchlauf runtergezählt
             j = Math.floor(Math.random() * (i+1));
             temp = cardArray[j]; // 
             cardArray[j] = cardArray[i];
@@ -38,7 +38,7 @@ namespace Memory {
         let childNodeHTML: string = "";             // neue variable initialisiert
         childNodeHTML += "<h2>Memoryboard</h2>"; // h2 wird im HTML erzeugt
         childNodeHTML += "<div>";                   // div wird im html erzeugt
-        for (let i: number = 0; i < cardArray.length; i++) {// Schleife lÃƒÂ¤uft so lange durch , bis i(zu beginn 0) so groÃƒÅ¸ ist wie die LÃƒÂ¤nge des Arrays. I wird nach jedem Durchlauf 1 hochgezÃƒÂ¤hlt
+        for (let i: number = 0; i < cardArray.length; i++) {// Schleife läuft so lange durch , bis i(zu beginn 0) so groß¸ ist wie die Länge des Arrays. I wird nach jedem Durchlauf 1 hochgezählt
             childNodeHTML += "<div>";            // im html wird ein div erzeugt
             childNodeHTML += "<div id= "+ i +" attr = "+ i +" class =";
             childNodeHTML += mixStatus();        // Aufruf der Funktion die den Status erzeugt (hidden, taken, visible)
@@ -47,7 +47,7 @@ namespace Memory {
             childNodeHTML += "</div></div>";     // divs werden geschlossen
         }
         childNodeHTML += "</div>";                 // groÃƒÅ¸es Spielfeld wird geschlossen
-        node.innerHTML += childNodeHTML;           //Inhalt der Knoten mit childNodeHTML befÃƒÂ¼llen 
+        node.innerHTML += childNodeHTML;           //Inhalt der Knoten mit childNodeHTML befüllen 
         
         console.log(childNodeHTML);             //Ausgabe von childNodeHTML auf der Konsole
     }
@@ -73,6 +73,18 @@ namespace Memory {
         console.log(childNodeHTML);         // Auagabe von childNodeHTML uaf der Konsole
     }
 
+    
+    function congratulation(): void{    
+    if ( g == numPairs){
+        
+        alert("Glückwunsch, du hast das Memory erfolgreich beendet")
+        
+    }
+}
+    
+    
+    
+    
     function main(): void {     // Hauptfunktion
         console.log("main");   // Ausgabe "main" auf der Konsole
         // Anzahl der Spieler ermitteln
