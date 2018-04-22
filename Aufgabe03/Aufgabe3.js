@@ -1,23 +1,18 @@
-var Memorie;
-(function (Memorie) {
+var Memory;
+(function (Memory) {
     /*Variablen erstellen*/
-    //Anzahl Spieler
-    let numPlayer = 0;
-    //Anzahl Kartenpaare
-    let numPairs = 0;
-    // Array mit dem Inhalt der Karten
-    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"];
-    //Leerer Array in den später teile des Inhalts gespeichert werden
-    let cardArray = [];
-    // Leerer Array der später mit dem Inhalt des Scores zu befÃ¼llen
-    let player = [];
+    let numPlayer = 0; //Anzahl Spieler
+    let numPairs = 0; //Anzahl Kartenpaare
+    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]; // Array mit dem Inhalt der Karten
+    let cardArray = []; //Leerer Array in den spÃ¤ter teile des Inhalts gespeichert werden
+    let player = []; // Leerer Array der spÃ¤ter mit dem Inhalt des Scores zu befÃƒÂ¼llen
     let score = [0, 0, 0, 0]; // derzeit score schon fest definiert als 0
-    // Funktion um den Status der Karten zu mischen: möglich hidden, visible und taken
+    // Funktion um den Status der Karten zu mischen: mÃ¶glich hidden, visible und taken
     function mixStatus() {
         return "hidden"; // ansonsten, also von 0-0.5 soll die Karte hidden sein
     }
     function shuffleCardArray() {
-        let i = cardArray.length; // Variable i initialisiert, i ist so groÃŸ wie der Array, also 15
+        let i = cardArray.length; // Variable i initialisiert, i ist so groÃƒÅ¸ wie der Array, also 15
         let j = 0; // Variable initialsisiert, Wert ist 0
         let temp = ""; // Variable definiert, typ string, kein Inhalt bisher
         while (--i > 0)
@@ -40,8 +35,8 @@ var Memorie;
             childNodeHTML += cardArray[i]; //card Array wird aufgerufen
             childNodeHTML += "</div></div>"; // divs werden geschlossen
         }
-        childNodeHTML += "</div>"; // groÃŸes Spielfeld wird geschlossen
-        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befÃ¼llen 
+        childNodeHTML += "</div>"; // groÃƒÅ¸es Spielfeld wird geschlossen
+        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befÃƒÂ¼llen 
         console.log(childNodeHTML); //Ausgabe von childNodeHTML auf der Konsole
     }
     function playerInfo() {
@@ -60,7 +55,7 @@ var Memorie;
             childNodeHTML += "</p></div>"; // divs werden geschlossen
         }
         childNodeHTML += "</div>"; // div des Playerinfofelds wird geschlossen
-        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befÃ¼llen 
+        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befÃƒÂ¼llen 
         console.log(childNodeHTML); // Auagabe von childNodeHTML uaf der Konsole
     }
     function main() {
@@ -68,7 +63,7 @@ var Memorie;
         // Anzahl der Spieler ermitteln
         let i = true; // initialisierung von i, ist true
         while (i) {
-            numPlayer = parseInt(prompt("Bitte wählen Sie zwischen 1 und 4 Spielern"), 10); // popup wird erstellt, 
+            numPlayer = parseInt(prompt("Bitte wÃ¤hlen Sie zwischen 1 und 4 Spielern"), 10); // popup wird erstellt, 
             if (numPlayer >= 1 && numPlayer <= 4) {
                 i = false; // i wird unwahr
             } // Schleife stoppt
@@ -82,7 +77,7 @@ var Memorie;
         // Anzahl der Paare ermitteln
         i = true; // i ist wahr
         while (i) {
-            numPairs = parseInt(prompt("Bitte wählen Sie zwischen 5 und 15 Kartenpaaren"), 10); // popup um Anzahl Kartenpaare auszuwÃ¤hlen
+            numPairs = parseInt(prompt("Bitte wÃ¤hlen Sie zwischen 5 und 15 Kartenpaaren"), 10); // popup um Anzahl Kartenpaare auszuwÃƒÂ¤hlen
             if (numPairs >= 5 && numPairs <= 15) {
                 i = false; // i ist unwahr
             } // Schleife stoppt
@@ -90,14 +85,14 @@ var Memorie;
         // Kartenpaare erstellen
         for (let i = 0; i < numPairs; i++) {
             cardArray.push(cardContent[i]); // cardContent wird in card Array geladen
-            cardArray.push(cardContent[i]); // cardContent wird in card Array geladen; 2x da zwei Karten fÃ¼r Paar nÃ¶tig
+            cardArray.push(cardContent[i]); // cardContent wird in card Array geladen; 2x da zwei Karten fÃƒÂ¼r Paar nÃƒÂ¶tig
         }
         // Spielboard wird erzeugt
         createBoard();
         // Spielerinfo wird erzeugt
         playerInfo();
     }
-    // main wird ausgefÃ¼hrt wenn DOM vollstÃ¤ndig geladen ist
+    // main wird ausgefÃƒÂ¼hrt wenn DOM vollstÃƒÂ¤ndig geladen ist
     document.addEventListener("DOMContentLoaded", main);
-})(Memorie || (Memorie = {}));
-//# sourceMappingURL=Aufgabe2.js.map
+})(Memory || (Memory = {}));
+//# sourceMappingURL=Aufgabe3.js.map
