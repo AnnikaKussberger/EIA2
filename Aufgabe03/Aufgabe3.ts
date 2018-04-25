@@ -7,14 +7,108 @@ namespace Memory {
  
     let cardContent: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]; // Array mit dem Inhalt der Karten
      
+    //Array welches alle offenen Karten trackt.
+    let openCards: HTMLElement[] = [];
+    let counter: number = 0;
+    let g: number = 0; // Variable die hochgezählt wird um später mit der Anzahl Paare verglichen zu werden zur Gratulationb
+    let nehmeKlicksAn: boolean = true;
     let cardArray: string[] = []; //Leerer Array in den später teile des Inhalts gespeichert werden
-    
     
     let player: string[] = []; // Leerer Array der spÃ¤ter mit dem Inhalt des Scores zu befÃƒÂ¼llen
     let score: number[] = [0,0,0,0];// derzeit score schon fest definiert als 0
+  
+    window.addEventListener( "click", init );
+    
+     //Funktion erstellen
+    function init( _event: Event ): void {
+        let target: HTMLDivElement = <HTMLDivElement>_event.target;
 
-    let g: number = 0; // Variable die hochgezählt wird um später mit der Anzahl Paare verglichen zu werden zur Gratulationb
+        //Konsolenausgabe
+        console.log( _event );
 
+        //Bedingung umgedrehte Karte und die Klicks müssen angenommen werden
+        if ( target.classList.contains( "hidden" ) && nehmeKlicksAn ) {
+
+            //Wenn der Counter kleiner 2, hidden verschwindet und die angeklickte Karte wird in das openCard Array gepusht
+            if ( counter < 2 ) {
+                target.classList.remove( "hidden" );
+                openCards.push( target );
+            }
+
+            //Counter wird hochgezählt
+            counter++;
+
+            //Counter ist gleich Zwei
+            if ( counter == 2 ) {
+
+                //Es werden keine Klicks auf der Karte mehr angenommen
+                nehmeKlicksAn = false;
+
+                //Counter wird auf 0 gesetzt
+                counter = 0;
+
+                //Inhalt der Karten wird überprüft, sind die Karten gleich oder nicht?
+                if ( openCards[0].innerText === openCards[1].innerText ) {
+
+                    //setTimeout Funktion
+                    setTimeout(() => {
+
+                        //Die Karten werden genommen
+                        openCards[0].classList.add( "taken" );
+                        openCards[1].classList.add( "taken" );
+
+                        //Das openCards Array wird geleert
+                        openCards = [];
+
+                        //Es werden wieder Klicks angenommen
+                        nehmeKlicksAn = true;
+
+                        //Wenn keine Karte mehr mit der Klasse hidden gefunden wurde ist das Spiel vorbei und die Gratulationsbox erscheint
+                        if ( document.getElementsByClassName( "hidden" ).length == 0 ) {
+                            alert( "Glückwunsch, du hast gewonnen!" )
+                        }
+
+                        //Die Karten werden nach 2 sec. von der Spielfläche entfernt
+                    }, 2000 );
+
+
+                }
+                else {
+
+                    //setTimeout Funktion
+                    setTimeout(() => {
+
+                        //Wenn die Karten nicht gleich sind drehen sie sich wieder um
+                        openCards[0].classList.add( "hidden" );
+                        openCards[1].classList.add( "hidden" );
+
+                        //Das openCards Array wird wieder geleert
+                        openCards = [];
+
+                        //Danach werden wieder Klicks angenommen
+                        nehmeKlicksAn = true;
+
+                        //Es dauert 2 sek. bis sich die Karten wieder umgedreht haben
+                    }, 2000 );
+
+
+                }
+
+
+            }
+
+        }
+
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     // Funktion um den Status der Karten zu mischen: möglich hidden, visible und taken
     function mixStatus(): string {  //Name der Funktion, Typ-Annotation
         return "hidden";            // ansonsten, also von 0-0.5 soll die Karte hidden sein
@@ -39,12 +133,12 @@ namespace Memory {
         childNodeHTML += "<h2>Memoryboard</h2>"; // h2 wird im HTML erzeugt
         childNodeHTML += "<div>";                   // div wird im html erzeugt
         for (let i: number = 0; i < cardArray.length; i++) {// Schleife läuft so lange durch , bis i(zu beginn 0) so groß¸ ist wie die Länge des Arrays. I wird nach jedem Durchlauf 1 hochgezählt
-            childNodeHTML += "<div>";            // im html wird ein div erzeugt
-            childNodeHTML += "<div id= "+ i +" attr = "+ i +" class =";
-            childNodeHTML += mixStatus();        // Aufruf der Funktion die den Status erzeugt (hidden, taken, visible)
-            childNodeHTML += "\">";                 
+            
+            childNodeHTML += "<div id= "+ i +" attr = "+ i +" class = ' ";
+            childNodeHTML += cardArray[i] + " " + mixStatus();
+            childNodeHTML += " ' >";               
             childNodeHTML += cardArray[i];       //card Array wird aufgerufen
-            childNodeHTML += "</div></div>";     // divs werden geschlossen
+            childNodeHTML += "</div>";    // divs werden geschlossen
         }
         childNodeHTML += "</div>";                 // groÃƒÅ¸es Spielfeld wird geschlossen
         node.innerHTML += childNodeHTML;           //Inhalt der Knoten mit childNodeHTML befüllen 
@@ -90,7 +184,7 @@ namespace Memory {
         // Anzahl der Spieler ermitteln
         let i: boolean = true; // initialisierung von i, ist true
         while (i) { // wÃƒÂ¤hrend i wahr ist
-            numPlayer = parseInt(prompt("Bitte wÃ¤hlen Sie zwischen 1 und 4 Spielern"), 10); // popup wird erstellt, 
+            numPlayer = parseInt(prompt("Bitte wählen Sie zwischen 1 und 4 Spielern"), 10); // popup wird erstellt, 
             if (numPlayer >= 1 && numPlayer <= 4) { // wenn eine Zahl kleiner als 1 oder grÃƒÂ¶ÃƒÅ¸er als 4eingegeben wird
                 i = false;                          // i wird unwahr
             } // Schleife stoppt
@@ -99,7 +193,7 @@ namespace Memory {
         for (let i: number = 0; i < numPlayer; i++) { // Schleife lÃƒÂ¤uft solang, wie i kleiner als die Anzahl der Spieler ist
             player[i] = prompt("Bitte Spielernamen " + (i+1) + " eingeben"); // popup um den Spielernamen einzugeben
             if (player[i] == null) { // wenn kein Name eingegeben wird
-                player[i] = "Mickey"; // wird der Spieler Mickey genannt
+                player[i] = "Guenter"; // wird der Spieler Guenter genannt
             }
         }
 
