@@ -1,4 +1,4 @@
-namespace Memory {
+namespace Memory2 {
     /*Variablen erstellen*/
     
     let numPlayer: number = 0; //Anzahl Spieler
@@ -159,13 +159,7 @@ namespace Memory {
     }
 
     
-    function congratulation(): void{    
-    if ( g == numPairs){
-        
-        alert("Glückwunsch, du hast das Memory erfolgreich beendet")
-        
-    }
-}
+ 
     
     
     
