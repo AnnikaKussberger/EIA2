@@ -48,15 +48,9 @@ namespace Memory2 {
 
                 
                 if ( openCards[0].innerText === openCards[1].innerText ) { // wird geprüft ob der text auf Karte1 gleich ist wie Text auf Karte 2
-
-                    
-                    setTimeout(() => { // Timeout funktion
-
-                       
+                      setTimeout(() => { // Timeout funktion
                         openCards[0].classList.add( "taken" ); // Karten werden umgedreht
                         openCards[1].classList.add( "taken" );
-
-                       
                         openCards = []; // Array wird geleert dass wieder 2 Karten umgedreht werden können
                         clicken = true;  // kann wieder geclickt werden
 
@@ -64,16 +58,12 @@ namespace Memory2 {
                         if ( document.getElementsByClassName( "hidden" ).length == 0 ) { // wenn keine hidden Karten mehr da sint
                             alert( "Glückwunsch, du hast gewonnen!" ) // kommt Gratulationsbox
                         } 
-
-                        
-                    }, 2000 ); // nach 2 sekunden verschwinden die Karten
+                       }, 2000 ); // nach 2 sekunden verschwinden die Karten
 
 
                 }
                 else { // also wenn der Text nicht gleich ist
-
-                    
-                    setTimeout(() => {
+                     setTimeout(() => {
                         openCards[0].classList.add( "hidden" ); // Karten drehen sich wieder um
                         openCards[1].classList.add( "hidden" );
                         openCards = []; // Array wird gedreht dass wieder 2 Karten umgedreht werden können
@@ -92,14 +82,7 @@ namespace Memory2 {
 
 
     }
-    
-
-    
-    
-    
-    
-    
-    
+       
     // Funktion um den Status der Karten zu mischen: möglich hidden, visible und taken
     function mixStatus(): string {  //Name der Funktion, Typ-Annotation
         return "hidden";            // ansonsten, also von 0-0.5 soll die Karte hidden sein
@@ -158,11 +141,6 @@ namespace Memory2 {
         console.log(childNodeHTML);         // Auagabe von childNodeHTML uaf der Konsole
     }
 
-    
- 
-    
-    
-    
     
     function main(): void {     // Hauptfunktion
         console.log("main");   // Ausgabe "main" auf der Konsole
