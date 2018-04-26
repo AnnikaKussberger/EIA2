@@ -1,69 +1,52 @@
-var Memory;
-(function (Memory) {
+var Memory2;
+(function (Memory2) {
     /*Variablen erstellen*/
     let numPlayer = 0; //Anzahl Spieler
     let numPairs = 0; //Anzahl Kartenpaare
     let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]; // Array mit dem Inhalt der Karten
-    //Array welches alle offenen Karten trackt.
-    let openCards = [];
-    let counter = 0;
+    let openCards = []; // umgedrehte Karten werden hier gespeichert
+    let counter = 0; // wenn karte umgedreht wird, wird diese Variable hochgezählt
     let g = 0; // Variable die hochgezählt wird um später mit der Anzahl Paare verglichen zu werden zur Gratulationb
-    let nehmeKlicksAn = true;
+    let clicken = true;
     let cardArray = []; //Leerer Array in den später teile des Inhalts gespeichert werden
     let player = []; // Leerer Array der spÃ¤ter mit dem Inhalt des Scores zu befÃƒÂ¼llen
     let score = [0, 0, 0, 0]; // derzeit score schon fest definiert als 0
-    window.addEventListener("click", init);
+    //Memory interaktiv
+    window.addEventListener("click", init); // bei Click wird init ausgeführt
     //Funktion erstellen
     function init(_event) {
         let target = _event.target;
         //Konsolenausgabe
         console.log(_event);
         //Bedingung umgedrehte Karte und die Klicks müssen angenommen werden
-        if (target.classList.contains("hidden") && nehmeKlicksAn) {
+        if (target.classList.contains("hidden") && clicken) {
             //Wenn der Counter kleiner 2, hidden verschwindet und die angeklickte Karte wird in das openCard Array gepusht
             if (counter < 2) {
                 target.classList.remove("hidden");
                 openCards.push(target);
             }
-            //Counter wird hochgezählt
-            counter++;
-            //Counter ist gleich Zwei
-            if (counter == 2) {
-                //Es werden keine Klicks auf der Karte mehr angenommen
-                nehmeKlicksAn = false;
-                //Counter wird auf 0 gesetzt
-                counter = 0;
-                //Inhalt der Karten wird überprüft, sind die Karten gleich oder nicht?
-                if (openCards[0].innerText === openCards[1].innerText) {
-                    //setTimeout Funktion
-                    setTimeout(() => {
-                        //Die Karten werden genommen
-                        openCards[0].classList.add("taken");
-                        openCards[1].classList.add("taken");
-                        //Das openCards Array wird geleert
-                        openCards = [];
-                        //Es werden wieder Klicks angenommen
-                        nehmeKlicksAn = true;
-                        //Wenn keine Karte mehr mit der Klasse hidden gefunden wurde ist das Spiel vorbei und die Gratulationsbox erscheint
-                        if (document.getElementsByClassName("hidden").length == 0) {
-                            alert("Glückwunsch, du hast gewonnen!");
-                        }
-                        //Die Karten werden nach 2 sec. von der Spielfläche entfernt
-                    }, 2000);
-                }
-                else {
-                    //setTimeout Funktion
-                    setTimeout(() => {
-                        //Wenn die Karten nicht gleich sind drehen sie sich wieder um
-                        openCards[0].classList.add("hidden");
-                        openCards[1].classList.add("hidden");
-                        //Das openCards Array wird wieder geleert
-                        openCards = [];
-                        //Danach werden wieder Klicks angenommen
-                        nehmeKlicksAn = true;
-                        //Es dauert 2 sek. bis sich die Karten wieder umgedreht haben
-                    }, 2000);
-                }
+            counter++; // counter wird hochgezählt   
+            if (counter == 2)
+                clicken = false; //  kann nicht mehr geclickt werden
+            counter = 0; //counter wird wieder auf 0 gesetzt  
+            if (openCards[0].innerText === openCards[1].innerText) {
+                setTimeout(() => {
+                    openCards[0].classList.add("taken"); // Karten werden umgedreht
+                    openCards[1].classList.add("taken");
+                    openCards = []; // Array wird geleert dass wieder 2 Karten umgedreht werden können
+                    clicken = true; // kann wieder geclickt werden
+                    if (document.getElementsByClassName("hidden").length == 0) {
+                        alert("Glückwunsch, du hast gewonnen!"); // kommt Gratulationsbox
+                    }
+                }, 2000); // nach 2 sekunden verschwinden die Karten
+            }
+            else {
+                setTimeout(() => {
+                    openCards[0].classList.add("hidden"); // Karten drehen sich wieder um
+                    openCards[1].classList.add("hidden");
+                    openCards = []; // Array wird gedreht dass wieder 2 Karten umgedreht werden können
+                    clicken = true; // kann wieder geclickt werden
+                }, 2000); //Timer von 2 Sekunden
             }
         }
     }
@@ -117,11 +100,6 @@ var Memory;
         node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befÃƒÂ¼llen 
         console.log(childNodeHTML); // Auagabe von childNodeHTML uaf der Konsole
     }
-    function congratulation() {
-        if (g == numPairs) {
-            alert("Glückwunsch, du hast das Memory erfolgreich beendet");
-        }
-    }
     function main() {
         console.log("main"); // Ausgabe "main" auf der Konsole
         // Anzahl der Spieler ermitteln
@@ -141,7 +119,7 @@ var Memory;
         // Anzahl der Paare ermitteln
         i = true; // i ist wahr
         while (i) {
-            numPairs = parseInt(prompt("Bitte wÃ¤hlen Sie zwischen 5 und 15 Kartenpaaren"), 10); // popup um Anzahl Kartenpaare auszuwÃƒÂ¤hlen
+            numPairs = parseInt(prompt("Bitte wählen Sie zwischen 5 und 15 Kartenpaaren"), 10); // popup um Anzahl Kartenpaare auszuwÃƒÂ¤hlen
             if (numPairs >= 5 && numPairs <= 15) {
                 i = false; // i ist unwahr
             } // Schleife stoppt
@@ -158,5 +136,5 @@ var Memory;
     }
     // main wird ausgefÃƒÂ¼hrt wenn DOM vollstÃƒÂ¤ndig geladen ist
     document.addEventListener("DOMContentLoaded", main);
-})(Memory || (Memory = {}));
+})(Memory2 || (Memory2 = {}));
 //# sourceMappingURL=Aufgabe3.js.map
