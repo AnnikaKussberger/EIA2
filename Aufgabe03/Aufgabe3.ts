@@ -26,18 +26,18 @@ namespace Memory2 {
 
     //Funktion erstellen
     function init(_event: Event): void {
-        let target: HTMLDivElement = <HTMLDivElement>_event.target;
+        let target: HTMLDivElement = <HTMLDivElement>_event.target; //sucht div der Kaarten==target
 
-        //Konsolenausgabe
-        console.log(_event);
+        
+        console.log(_event); //Konsolenausgabe
 
-        //Bedingung umgedrehte Karte und die Klicks müssen angenommen werden
-        if (target.classList.contains("hidden") && clicken) {
+        
+        if (target.classList.contains("hidden") && clicken) { //Bedingung umgedrehte Karte und die Klicks müssen angenommen werden
 
-            //Wenn der Counter kleiner 2, hidden verschwindet und die angeklickte Karte wird in das openCard Array gepusht
-            if (counter < 2) {
-                target.classList.remove("hidden");
-                openCards.push(target);
+           
+            if (counter < 2) { //wenn counter kleiner als 2 ist
+                target.classList.remove("hidden"); //Karte wird aus Array gelöscht und
+                openCards.push(target); // in opencards gepusht
             }
 
 
@@ -117,11 +117,11 @@ namespace Memory2 {
         console.log(childNodeHTML);             //Ausgabe von childNodeHTML auf der Konsole
     }
 
-    function playerInfo(): void { //Funktion fÃƒÂ¼r die Spielerinfo
+    function playerInfo(): void { //Funktion für die Spielerinfo
         let node: any = document.getElementById("Spielerinfo"); //Aufruf der id im Html Dokument 
         let childNodeHTML: string = ""; // neue Variable initialisiert
         childNodeHTML += "<div>"; // div im html erzeugt
-        for (let i: number = 0; i < player.length; i++) { // Schleife lÃƒÂ¤uft so lange durch, solange i kleiner als die Anzahl der Spieler ist, i wird nach jedem Durchlauf 1 hochgezÃƒÂ¤hlt
+        for (let i: number = 0; i < player.length; i++) { // Schleife läuft so lange durch, solange i kleiner als die Anzahl der Spieler ist, i wird nach jedem Durchlauf 1 hochgezÃƒÂ¤hlt
             childNodeHTML += "<div id=Spieler";     // div mit id Spieler im html erzeugt
             childNodeHTML += i;
             childNodeHTML += ">";
@@ -133,7 +133,7 @@ namespace Memory2 {
             childNodeHTML += "</p></div>";        // divs werden geschlossen
         }
         childNodeHTML += "</div>";              // div des Playerinfofelds wird geschlossen
-        node.innerHTML += childNodeHTML;        //Inhalt der Knoten mit childNodeHTML befÃƒÂ¼llen 
+        node.innerHTML += childNodeHTML;        //Inhalt der Knoten mit childNodeHTML befüllen 
 
         console.log(childNodeHTML);         // Auagabe von childNodeHTML uaf der Konsole
     }
@@ -143,9 +143,9 @@ namespace Memory2 {
         console.log("main");   // Ausgabe "main" auf der Konsole
         // Anzahl der Spieler ermitteln
         let i: boolean = true; // initialisierung von i, ist true
-        while (i) { // wÃƒÂ¤hrend i wahr ist
+        while (i) { // während i wahr ist
             numPlayer = parseInt(prompt("Bitte wählen Sie zwischen 1 und 4 Spielern"), 10); // popup wird erstellt, 
-            if (numPlayer >= 1 && numPlayer <= 4) { // wenn eine Zahl kleiner als 1 oder grÃƒÂ¶ÃƒÅ¸er als 4eingegeben wird
+            if (numPlayer >= 1 && numPlayer <= 4) { // wenn eine Zahl kleiner als 1 oder größer als 4 eingegeben wird
                 i = false;                          // i wird unwahr
             } // Schleife stoppt
         }
@@ -159,7 +159,7 @@ namespace Memory2 {
 
         // Anzahl der Paare ermitteln
         i = true; // i ist wahr
-        while (i) { // wÃƒÂ¤hrend i wahr ist
+        while (i) { // während i wahr ist
             numPairs = parseInt(prompt("Bitte wählen Sie zwischen 5 und 15 Kartenpaaren"), 10); // popup um Anzahl Kartenpaare auszuwÃƒÂ¤hlen
             if (numPairs >= 5 && numPairs <= 15) { // wenn Anzahl kleiner als 5 und grÃƒÂ¶ÃƒÅ¸er als 15 ist
                 i = false; // i ist unwahr
@@ -167,7 +167,7 @@ namespace Memory2 {
         }
 
         // Kartenpaare erstellen
-        for (let i: number = 0; i < numPairs; i++) { // Schleife lÃƒÂ¤uft so lange durch, wie i kleiner als die Anzahl der Paare ist
+        for (let i: number = 0; i < numPairs; i++) { // Schleife läuft so lange durch, wie i kleiner als die Anzahl der Paare ist
             cardArray.push(cardContent[i]); // cardContent wird in card Array geladen
             cardArray.push(cardContent[i]); // cardContent wird in card Array geladen; 2x da zwei Karten fÃƒÂ¼r Paar nÃƒÂ¶tig
         }

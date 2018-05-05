@@ -15,15 +15,12 @@ var Memory2;
     window.addEventListener("click", init); // bei Click wird init ausgeführt
     //Funktion erstellen
     function init(_event) {
-        let target = _event.target;
-        //Konsolenausgabe
-        console.log(_event);
-        //Bedingung umgedrehte Karte und die Klicks müssen angenommen werden
+        let target = _event.target; //sucht div der Kaarten==target
+        console.log(_event); //Konsolenausgabe
         if (target.classList.contains("hidden") && clicken) {
-            //Wenn der Counter kleiner 2, hidden verschwindet und die angeklickte Karte wird in das openCard Array gepusht
             if (counter < 2) {
-                target.classList.remove("hidden");
-                openCards.push(target);
+                target.classList.remove("hidden"); //Karte wird aus Array gelöscht und
+                openCards.push(target); // in opencards gepusht
             }
             counter++; // counter wird hochgezählt   
             if (counter == 2)
@@ -97,7 +94,7 @@ var Memory2;
             childNodeHTML += "</p></div>"; // divs werden geschlossen
         }
         childNodeHTML += "</div>"; // div des Playerinfofelds wird geschlossen
-        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befÃƒÂ¼llen 
+        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML befüllen 
         console.log(childNodeHTML); // Auagabe von childNodeHTML uaf der Konsole
     }
     function main() {
