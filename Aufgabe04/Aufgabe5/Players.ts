@@ -1,3 +1,4 @@
+
 namespace Aufgabe5 {
     
     //Speicherort für Spielername und Score
