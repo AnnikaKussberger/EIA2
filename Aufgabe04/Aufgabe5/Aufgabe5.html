@@ -28,15 +28,15 @@ in GRUPPENARBEIT erstellt
     <div id="spieleranzahl">
         <h3>Spieleranzahl</h3>
         
-        <!-- Checked, damit min. 1 Spieler vorgeben ist-->
-        <!-- Wenn ein Radiobutton geklickt wird, dann wird Funktion bearbeiteSpielerZahlKlick ausgeführt. Als Parameter wird der gedrückte Button übergeben-->
-        <!-- This= Das momentane Html Element-->
         
-        <input type="radio" name="radio" value="1" id="1" checked onclick="Aufgabe5.bearbeiteSpielerZahlKlick(this)"/>
+       
+        
+        <!-- Wird sichergestellt dass mindestens 1 Spieler verfügbar ist-->
+        <input type="radio" name="radio" value="1" id="1" checked onclick="Aufgabe5.bearbeiteSpielerZahlKlick(this)"/> 
         <label for="1">1</label>
-        <input type="radio" name="radio" value="2" id="2" onclick="Aufgabe5.bearbeiteSpielerZahlKlick(this)"/>
+        <input type="radio" name="radio" value="2" id="2" onclick="Aufgabe5.bearbeiteSpielerZahlKlick(this)"/><!-- wenn radio geklickt wird, wird bearbeiteSpielerZahlKlick aufgerufen. Mitgegeben wird die Info gedrückter Button  -->
         <label for="2">2</label>
-        <input type="radio" name="radio" value="3" id="3" onclick="Aufgabe5.bearbeiteSpielerZahlKlick(this)"/>
+        <input type="radio" name="radio" value="3" id="3" onclick="Aufgabe5.bearbeiteSpielerZahlKlick(this)"/> <!-- This= ist das momentane Html Element-->
         <label for="3">3</label>
         <input type="radio" name="radio" value="4" id="4" onclick="Aufgabe5.bearbeiteSpielerZahlKlick(this)"/>
         <label for="4">4</label>
@@ -48,8 +48,8 @@ in GRUPPENARBEIT erstellt
         <h3>Name der Spieler</h3>
 
         
-        <!-- Mindestens ein Spielername ist erforderlich-->
-        <!-- Als Startwert haben alle bis auf Spieler 1 einen durchsichtigen Text und einen deaktivierten Input-->
+        <!-- Wird sichergestellt dass mindestens 1 Spieler verfügbar ist -->
+        <!-- beim Start kann nur in ein Feld der Name eingegeben werden-->
         
         <h4 id="player1-label">Spieler 1</h4>
         <input id="player1" type="text" name="Text" placeholder="Bitte Name eingeben" value="" required />
@@ -63,7 +63,7 @@ in GRUPPENARBEIT erstellt
 
     
     
-    <!-- Wenn ein Radiobutton geklickt wird, dann wird Funktion bearbeiteKartenSatzKlick ausgeführt. Als Parameter wird der gedrückte Button übergeben-->
+<!-- wenn radio geklickt wird, wird bearbeiteKartenSatzKlick aufgerufen. Mitgegeben wird die Info gedrückter Button  -->
 
     <div id="kartensatz">
         <h3>Kartensatz</h3>
@@ -77,7 +77,7 @@ in GRUPPENARBEIT erstellt
 
     
     
-    <!-- This.value = Nur der Wert wird übergeben-->
+    <!-- This.value = Nur dieser eine Wert wird übergeben-->
 
     <div >
         <h3>Kartenpaare</h3>

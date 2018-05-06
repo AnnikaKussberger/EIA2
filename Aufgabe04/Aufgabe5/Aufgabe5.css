@@ -1,19 +1,9 @@
-/*Allgemeines Stylesheet*/
 body {
   font-family: 'Shadows Into light', monospace;
   font-size: 20px;
   background-color: #7b9191;
   color: dark-gray;
 }
-
-h2 {
-	text-align: center;
-}
-
-h3 {
-	text-align: center;
-}
-
 
  #starteinstellungen {
 	display: block;

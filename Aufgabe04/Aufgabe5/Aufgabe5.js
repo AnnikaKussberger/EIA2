@@ -1,119 +1,73 @@
 var Aufgabe5;
 (function (Aufgabe5) {
-    //Variablen definieren
-    //Anzehl Spieler
-    let numPlayers = 0;
-    //Anzahl Kartenpaare
-    Aufgabe5.numPairs = 5;
-    //Array welches alle offenen Karten trackt.
-    let openCards = [];
-    //Variable des momentanen Kartendecks
-    let currentCardDeck = undefined;
-    //Variable counter anlegen
-    let counter = 0;
-    //Variable l f�r die Gratulation erstellen
-    let l = 0;
-    let nehmeKlicksAn = true;
-    //Leeres Array um die Karten sp�ter hinein abspeichern zu k�nnen
-    let cardArray = [];
-    //Arrays erstellen um  den Score und Anzahl der Spieler sp�ter abzuspeichern
-    let playerNames = [];
+    let numPlayers = 0; //Anzahl Spieler
+    Aufgabe5.numPairs = 5; //Anzahl Kartenpaare
+    let openCards = []; // umgedrehte Karten werden hier gespeichert
+    let currentCardDeck = undefined; //aktuelles Kartendeck wird mit Variable versehen
+    let counter = 0; // wenn karte umgedreht wird, wird diese Variable hochgez�hlt
+    let l = 0; // Variable die hochgez�hlt wird um sp�ter mit der Anzahl Paare verglichen zu werden zur Gratulationb
+    let nehmeKlicksAn = true; //boolean der daf�r sorgt dass nur 2 mal geklickt werden kann
+    let cardArray = []; //Leerer Array in den sp�ter teile des Inhalts gespeichert werden
+    let playerNames = []; // Leerer Array der sp�ter mit dem Inhalt des Scores zu bef�llen
     let score = [0, 0, 0, 0]; //Punktestand = 0, ist vordefiniert
-    window.addEventListener("click", verarbeiteKlick);
-    Aufgabe5.populateDecks();
-    //Funktion erstellen
+    window.addEventListener("click", verarbeiteKlick); //bei click wird Funktion verarbeiteClick ausgef�hrt
+    Aufgabe5.populateDecks(); //funktion populateDecks wird aufgerufen
     function verarbeiteKlick(_event) {
         let target = _event.target;
-        //Konsolenausgabe
-        console.log(_event);
-        //Bedingung umgedrehte Karte und die Klicks m�ssen angenommen werden
+        console.log(_event); //_event wird auf Konsole ausgegeben
         if (target.classList.contains("hidden") && nehmeKlicksAn) {
-            //Wenn der Counter kleiner 2, hidden verschwindet und die angeklickte Karte wird in das openCard Array gepusht
             if (counter < 2) {
-                target.classList.remove("hidden");
-                openCards.push(target);
+                target.classList.remove("hidden"); //Karte wird aus Array gel�scht
+                openCards.push(target); // und in opencards gespeichert
             }
-            //Counter wird hochgez�hlt
-            counter++;
-            //Counter ist gleich Zwei
+            counter++; //counter wird hochgez�hlt
             if (counter == 2) {
-                //Es werden keine Klicks auf der Karte mehr angenommen
-                //d.h. man kann die Karte nur einmal anklicken
-                nehmeKlicksAn = false;
-                //Counter wird auf 0 gesetzt
-                counter = 0;
-                //Inhalt der Karten wird �berpr�ft, sind die Karten gleich oder nicht?
+                nehmeKlicksAn = false; //kann nicht mehr geklickt werden
+                counter = 0; //counter wird wieder auf 0 gesetzt
                 if (openCards[0].innerText === openCards[1].innerText) {
-                    //setTimeout Funktion
                     setTimeout(() => {
-                        //Die Karten werden genommen
-                        openCards[0].classList.add("taken");
+                        openCards[0].classList.add("taken"); // Karten werden umgedreht
                         openCards[1].classList.add("taken");
-                        //Das openCards Array wird geleert
-                        openCards = [];
-                        //Es werden wieder Klicks angenommen
-                        nehmeKlicksAn = true;
-                        //Wenn keine Karte mehr mit der Klasse hidden gefunden wurde ist das Spiel vorbei 
-                        //und das Pop-up f�r die Gratulation zum Gewinn plopt auf
+                        openCards = []; //opencards wird wieder geleert
+                        nehmeKlicksAn = true; //kann wieder geklickt werden
                         if (document.getElementsByClassName("hidden").length == 0) {
-                            alert("Herzlichen Gl�ckwunsch, du hast das Spiel gewonnen!");
+                            alert("Herzlichen Gl�ckwunsch, du hast das Spiel gewonnen!"); //kommt alertbox
                         }
-                        //Das gefundene Kartenpaar wird nach 2 sec. von der Spielfl�che entfernt
-                    }, 2000);
+                    }, 2000); //Karte wird nach 2 Sec entfernt
                 }
                 else {
-                    //setTimeout Funktion
                     setTimeout(() => {
-                        //Wenn die Karten nicht gleich sind drehen sie sich wieder um
-                        openCards[0].classList.add("hidden");
+                        openCards[0].classList.add("hidden"); //Karten werden wieder umgedreht
                         openCards[1].classList.add("hidden");
-                        //Das openCards Array wird wieder geleert
-                        openCards = [];
-                        //Danach werden wieder Klicks angenommen
-                        nehmeKlicksAn = true;
-                        //Es dauert 2 sek. bis sich die Karten wieder umgedreht haben
-                    }, 2000);
+                        openCards = []; //opencards Array wird wieder geleert
+                        nehmeKlicksAn = true; //kann wieder geklickt werden
+                    }, 2000); //Karten verschwinden nach 2 sec
                 }
             }
         }
     }
-    //Funktion erstellen, damit alle Karten umgedreht sind beim Spielbeginn
     function randomState() {
-        //Alle Karten sind zu Beginn des Spiels umgedreht
-        return "hidden";
+        return "hidden"; //anfangs alle Karten verdeckt
     }
     Aufgabe5.randomState = randomState;
-    //Karten mischen -> Shuffle Funktion (Karten sollen durchgemischt werden, 
-    //damit nicht immer die selben Karten auf dem Spielfeld sind
     function shuffleCards() {
-        //Variable i wird definiert, sie ist so gro� wie die L�nge des cardArrays
-        let i = cardArray.length;
-        //Variable j wird definiert, sie entspricht der Zahl 0
-        let j = 0;
-        //Variable temp wird definiert als string ohne Textinhalt.
-        let temp = "";
-        //Variable i(L�nge des Arrays) wird immer um 1 herunter gez�hlt und muss immer gr��er 0 sein
+        let i = cardArray.length; // Variable i initialisiert, i ist so gro߸ wie der Array, also 15
+        let j = 0; // Variable initialsisiert, Wert ist 0
+        let temp = ""; // Variable definiert, typ string, kein Inhalt bisher
         while (--i > 0) {
-            //j=0, eine random Zahl zwischen 0 und 1 tritt dadurch auf
-            j = Math.floor(Math.random() * (i + 1));
+            j = Math.floor(Math.random() * (i + 1)); //zuf�llige Zahl zwischen 0 und 1
             temp = cardArray[j];
             cardArray[j] = cardArray[i];
             cardArray[i] = temp;
         }
     }
-    //Spielfeld wird erzeugt
-    //Funktion wird erstellt, um das Hauptspielfeld zu erzeugen
     function createGame() {
-        //Aufruf der id im Html Dokument
-        let node = document.getElementById("Spielfeld");
-        //Funktion shuffleCards wird aufgerufen, damit die Karten bei jedem Spiel gemischelt werden
-        shuffleCards();
-        //�berschrift wird erstellt
-        let header = document.createElement("h2");
-        header.innerText = "Spielfeld";
+        let node = document.getElementById("Spielfeld"); // neue Variable node, Aufruf der ID im Html Dokument
+        shuffleCards(); // Funktion ShuffleCardArry wird aufgerufen dass bei jedem Spiel neu gemischt wird
+        let header = document.createElement("h2"); //h2 wird im html erzeugt
+        header.innerText = "Spielfeld"; //text im h2: Spielfeld
         node.appendChild(header);
-        //Spielfeld innerhalb eines Divs
-        let spielFeld = document.createElement("div");
+        let spielFeld = document.createElement("div"); //erzeugt div spielfeld im html
         for (let i = 0; i < cardArray.length; i++) {
             let card = document.createElement("div");
             card.id = i.toString();
@@ -131,43 +85,26 @@ var Aufgabe5;
         node.appendChild(spielFeld);
         //Ausgabe auf die Konsole
     }
-    //Spieleranzeige erstellen
-    //Funktion playerInfo erstellen
     function playerInfo() {
-        //Aufruf der id im Html Dokument
-        let node = document.getElementById("Spielinfo");
-        //HTML string
-        let childNodeHTML = "";
-        //Div erzeugen
-        childNodeHTML += "<div>";
-        //Schleife erstellen, i=0, i ist gr��er als die L�nge des Spieler Arrays, i wird hochgez�hlt
+        let node = document.getElementById("Spielinfo"); //Aufruf der id im Html Dokument 
+        let childNodeHTML = ""; //neue leere string Variable
+        childNodeHTML += "<div>"; //div im html erzeugt
         for (let i = 0; i < playerNames.length; i++) {
-            //Id "Spieler" wird erzeugt (untergeordnete id)
-            childNodeHTML += "<div id=Spieler";
+            childNodeHTML += "<div id=Spieler"; //div mit id spieler erzeugt im html (untergeordnete id)
             childNodeHTML += i;
             childNodeHTML += ">";
-            //Paragraph f�r Spielrnamen wird erzeugt
-            childNodeHTML += "<p>Spielername: ";
+            childNodeHTML += "<p>Spielername: "; //paragraph mit spielernamen erzeugt
             childNodeHTML += playerNames[i];
             childNodeHTML += "</p>";
-            //Paragraph f�r Punktestand wird erzeugt
-            childNodeHTML += "<p>Punktestand: ";
-            //Zugriff auf den Punktestandarray
-            childNodeHTML += score[i];
+            childNodeHTML += "<p>Punktestand: "; //paragraph mit punktestand
+            childNodeHTML += score[i]; //Ausgabe des Punktestands
             childNodeHTML += "</p></div>";
         }
-        //Div wird geschlossen
-        childNodeHTML += "</div>";
-        //Inhalt der Knoten mit childNodeHTML bef�llen
-        node.innerHTML += childNodeHTML;
-        //Ausgabe auf die Konsole
-        console.log(childNodeHTML);
+        childNodeHTML += "</div>"; //div wird geschlossen
+        node.innerHTML += childNodeHTML; //Inhalt der Knoten mit childNodeHTML bef�llen
+        console.log(childNodeHTML); //Ausgabe von Childnodehtml auf Konsole
     }
-    //Hauptfunktion wird erzeugt
-    //Funtkion main aufstellen
     function main() {
-        //Funtion f�r die Spielerabfrage erstellen
-        //Variable f�r Spielernzahl definieren
         let spielerAnzahl;
         //Variable collection als NodeListOfElement
         //NodeList Objekte sind Sammlungen von Knoten
@@ -212,21 +149,17 @@ var Aufgabe5;
         Aufgabe5.numPairs = value;
     }
     Aufgabe5.onInputEvent = onInputEvent;
-    //Karten werden durch die Funktion erstellt
     function populateCardArray(karten) {
-        //Kartenpaare werden erzeugt
         for (let i = 0; i < Aufgabe5.numPairs; i++) {
             cardArray.push(karten[i]);
             cardArray.push(karten[i]);
         }
     }
-    //F�r Auswahl des Kartensatzes, damit sich die L�nge anpasst
     function bearbeiteKartenSatzKlick(element) {
         currentCardDeck = Aufgabe5.decks[element.value];
         repopulateCardForm();
     }
     Aufgabe5.bearbeiteKartenSatzKlick = bearbeiteKartenSatzKlick;
-    //Fehlererkennung (Slider ansich �ndert sich)
     function repopulateCardForm() {
         let kartenPaareElement = document.getElementById("kartenpaare");
         kartenPaareElement.max = currentCardDeck.content.length.toString();
@@ -235,16 +168,12 @@ var Aufgabe5;
         if (maxWert < momentanerWert) {
             kartenPaareElement.value = maxWert.toString();
         }
-        //Update des HTML (Zahl neben dem Slider �ndert sich --> Slider wird nach oben gez�hlt)
-        document.getElementById("kartenpaare-label").innerText = kartenPaareElement.value;
+        document.getElementById("kartenpaare-label").innerText = kartenPaareElement.value; //Update des HTML (Zahl neben dem Slider �ndert sich --> Slider wird nach oben gez�hlt)
     }
-    //Spieleranzahl und Spielername werden erstellt
     function bearbeiteSpielerZahlKlick(element) {
-        //parseInt = String wird zu einer ganzen Zahl umgewandelt
-        let spielerZahl = parseInt(element.value);
+        let spielerZahl = parseInt(element.value); //parseInt = String wird zu einer ganzen Zahl umgewandelt
         for (let i = 1; i <= 4; i++) {
-            //`player${i}`: Innerhalb eines String wird Javascripts aufgerufen, zur Bearbeitung  
-            let inputElement = document.getElementById(`player${i}`);
+            let inputElement = document.getElementById(`player${i}`); //`player${i}`: Innerhalb eines String wird Javascripts aufgerufen, zur Bearbeitung
             let labelElement = document.getElementById(`player${i}-label`);
             if (i <= spielerZahl) {
                 inputElement.disabled = false;

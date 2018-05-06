@@ -1,6 +1,6 @@
 var Aufgabe5;
 (function (Aufgabe5) {
-    Aufgabe5.decks = {}; //Objekt
+    Aufgabe5.decks = {}; // einzelne Kartenspiele
     function populateDecks() {
         Aufgabe5.decks["colors"] = {
             name: "colors",

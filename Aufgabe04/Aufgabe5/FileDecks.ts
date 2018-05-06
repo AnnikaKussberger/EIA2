@@ -13,7 +13,7 @@ namespace Aufgabe5 {
         [deckname: string]: Deck;
     }
 
-    export let decks: Decks = {}  //Objekt
+    export let decks: Decks = {}  // einzelne Kartenspiele
     export function populateDecks() {
         decks["colors"] = {
             name: "colors",
