@@ -184,7 +184,7 @@ namespace Aufgabe5 {
             card.textContent = cardArray[i];
             
             //CSS wird mit card.style definiert
-            card.style.backgroundColor = currentCardDeck.color;
+            //card.style.backgroundColor = currentCardDeck.color;
             card.style.fontFamily = currentCardDeck.font;
             card.style.fontSize = currentCardDeck.size + "px";
             card.style.color = currentCardDeck.textColor;
@@ -241,17 +241,7 @@ namespace Aufgabe5 {
         console.log( childNodeHTML );
     }
 
-    //Funktion graduation erstellen
-    function gratulation(): void {
-
-        //Es wird geprüft, ob die Anzahl der richtigen Paare die Anzahl auf dem Spielfeld sind
-        if ( l == numPairs ) {
-
-            //Alertbox erstellen
-            alert( "Herzlichen Glückwunsch, du hast das Spiel gewonnen!" )
-
-        }
-    }
+    
 
     //Hauptfunktion wird erzeugt
     //Funtkion main aufstellen
@@ -283,11 +273,11 @@ namespace Aufgabe5 {
         //Eingabe Spielernamen
         collection = document.getElementById("name").getElementsByTagName("input");
 
-        //Wenn kein Spielername eingegeben wurde, heißt der Spieler Jeff
+        //Wenn kein Spielername eingegeben wurde, heißt der Spieler Cindy
         
         for (let i = 0; i < collection.length; i++) {
             if ((<HTMLInputElement>collection[i]).value == "" && i == 0) {
-                playerNames.push("Jeff")
+                playerNames.push("Cindy")
             }
             
             //Ansonsten wird der Spielername ins Spiel gepusht
@@ -301,9 +291,9 @@ namespace Aufgabe5 {
         collection = document.getElementById("kartensatz").getElementsByTagName("input");
 
         
-        //Wenn beim Kartendeck nichts ausgewählt wird, erscheint automatisch das Kartendeck "animals"
+        //Wenn beim Kartendeck nichts ausgewählt wird, erscheint automatisch das Kartendeck "colors"
         if (currentCardDeck == undefined) //wenn kein Kartendeck definiert ist
-            currentCardDeck = decks["animals"];
+            currentCardDeck = decks["colors"];
         
         //Karten werden erzeugt
         populateCardArray(currentCardDeck.content);

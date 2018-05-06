@@ -122,7 +122,7 @@ var Aufgabe5;
             card.classList.add(randomState());
             card.textContent = cardArray[i];
             //CSS wird mit card.style definiert
-            card.style.backgroundColor = currentCardDeck.color;
+            //card.style.backgroundColor = currentCardDeck.color;
             card.style.fontFamily = currentCardDeck.font;
             card.style.fontSize = currentCardDeck.size + "px";
             card.style.color = currentCardDeck.textColor;
@@ -163,14 +163,6 @@ var Aufgabe5;
         //Ausgabe auf die Konsole
         console.log(childNodeHTML);
     }
-    //Funktion graduation erstellen
-    function gratulation() {
-        //Es wird gepr�ft, ob die Anzahl der richtigen Paare die Anzahl auf dem Spielfeld sind
-        if (l == Aufgabe5.numPairs) {
-            //Alertbox erstellen
-            alert("Herzlichen Gl�ckwunsch, du hast das Spiel gewonnen!");
-        }
-    }
     //Hauptfunktion wird erzeugt
     //Funtkion main aufstellen
     function main() {
@@ -190,10 +182,10 @@ var Aufgabe5;
         }
         //Eingabe Spielernamen
         collection = document.getElementById("name").getElementsByTagName("input");
-        //Wenn kein Spielername eingegeben wurde, hei�t der Spieler Jeff
+        //Wenn kein Spielername eingegeben wurde, hei�t der Spieler Cindy
         for (let i = 0; i < collection.length; i++) {
             if (collection[i].value == "" && i == 0) {
-                playerNames.push("Jeff");
+                playerNames.push("Cindy");
             }
             else if (collection[i].value != "") {
                 playerNames.push(collection[i].value);
@@ -201,9 +193,9 @@ var Aufgabe5;
         }
         //Auswahl des Kartensatzes
         collection = document.getElementById("kartensatz").getElementsByTagName("input");
-        //Wenn beim Kartendeck nichts ausgew�hlt wird, erscheint automatisch das Kartendeck "animals"
+        //Wenn beim Kartendeck nichts ausgew�hlt wird, erscheint automatisch das Kartendeck "colors"
         if (currentCardDeck == undefined)
-            currentCardDeck = Aufgabe5.decks["animals"];
+            currentCardDeck = Aufgabe5.decks["colors"];
         //Karten werden erzeugt
         populateCardArray(currentCardDeck.content);
         //Spielfeld wird erzeugt

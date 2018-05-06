@@ -15,27 +15,27 @@ namespace Aufgabe5 {
 
     export let decks: Decks = {}  //Objekt
     export function populateDecks() {
-        decks["animals"] = {
-            name: "animals",
-            content: ["Panda", "Koala", "Löwe", "Delfin", "Hase", "Bär", "Katze", "Hund", "Wal", "Kaninchen"],
+        decks["colors"] = {
+            name: "colors",
+            content: ["green", "blue", "red", "yellow", "orange", "burgundy", "violet", "purple", "turquise", "brown"],
             color: "#e184ca",
             font: "Arial",
             size: "125%",
             textColor: "#001a33"
         };
 
-        decks["fruits"] = {
-            name: "fruits",
-            content: ["Apfel", "Birne", "Banane", "Ananas", "Mango", "Pfirsich", "Papaya", "Orange", "Traube", "Kiwi", "Melone", "Kirsche"],
+        decks["sports"] = {
+            name: "sports",
+            content: ["Handball", "Fußball", "Boxen", "Bogenschießen", "BMX", "Schwimmen", "Triathlon", "Fechten", "Tischtennis", "Ski Alpin", "Polo", "Schach"],
             color: "#ff99ff",
             font: "Times New Roman",
             size: "115%",
             textColor: "#330033"
         };
 
-        decks["veggies"] = {
-            name: "veggies",
-            content: ["Karotte", "Kartoffel", "Tomate", "Erbse", "Zucchini", "Aubergine", "Gurke", "Paprika", "Spargel", "Bohne", "Lauch","Brokkoli", "Zwiebel", "Sellerie"],
+        decks["cities"] = {
+            name: "cities",
+            content: ["New York", "Furtwangen", "Kuwait", "Chiang Mai", "Macao", "Helsinki", "Venedig", "Rejkjavik", "Kapstadt", "Sofia", "London","Istanbul", "Warschau", "Turin"],
             color: "#ffb3b3",
             font: "Calibri",
             size: "130%",

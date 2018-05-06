@@ -1,8 +1,8 @@
 /*Allgemeines Stylesheet*/
 body {
-  font-family: 'Raleway', monospace;
+  font-family: 'Shadows Into light', monospace;
   font-size: 20px;
-  background-color: #ffe6ff/*#5a6472*/;
+  background-color: #7b9191;
   color: dark-gray;
 }
 
@@ -14,14 +14,16 @@ h3 {
 	text-align: center;
 }
 
+
  #starteinstellungen {
 	display: block;
-    box-shadow: 0px 0px 20px 0px #ff4d4d;
+    box-shadow: 0px 0px 20px 0px;
     padding: 2em;
     width: 45%;
     margin: auto;
     margin-top: 2em;
-    background-color: #ffe6ff;
+    background-color: #ffcc00;
+    text-align: center;
 }
 
 
@@ -34,10 +36,8 @@ h3 {
   float: left;
   left: 0;
   top: 0;
-  background-color: #ffe6ff;
+  background-color: #7b9191;
   padding: 20px;
-  /*box-sizing: border-box;*/
-  /*box-shadow: 0px 0px 20px 0px #ff4d4d;*/
 }
 
 #Spielinfo h2 {
@@ -94,14 +94,13 @@ h3 {
 
 
 .visible{
-	background-color: #ffb3b3;
+	background-color: #ffcc00;
   	pointer-events: auto;	
 }
 
 .hidden {
-  background-color: #ff6666;
+  background-color: #ffcc00;
 	text-indent: -99999px;
-	/*transform: rotateY(180deg);*/
 }
 .taken {
   transform: scale(0);
