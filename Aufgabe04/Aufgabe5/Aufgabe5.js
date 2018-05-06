@@ -109,41 +109,31 @@ var Aufgabe5;
         //Variable collection als NodeListOfElement
         //NodeList Objekte sind Sammlungen von Knoten
         let collection = document.getElementById("spieleranzahl").getElementsByTagName("input");
-        // i=0, gr��er als die L�nge von collection und wird hochgez�hlt
         for (let i = 0; i < collection.length; i++) {
-            //Spieleranzahl wird hochgez�hlt 
             if (collection[i].checked) {
-                spielerAnzahl = i + 1;
+                spielerAnzahl = i + 1; //Spieleranzahl wird hochgez�hlt 
                 break;
             }
         }
-        //Eingabe Spielernamen
-        collection = document.getElementById("name").getElementsByTagName("input");
-        //Wenn kein Spielername eingegeben wurde, hei�t der Spieler Cindy
+        collection = document.getElementById("name").getElementsByTagName("input"); //Eingabe Spielernamen
         for (let i = 0; i < collection.length; i++) {
             if (collection[i].value == "" && i == 0) {
-                playerNames.push("Cindy");
+                playerNames.push("Cindy"); //hei�t der Spieler Cindy
             }
             else if (collection[i].value != "") {
                 playerNames.push(collection[i].value);
             }
         }
-        //Auswahl des Kartensatzes
-        collection = document.getElementById("kartensatz").getElementsByTagName("input");
-        //Wenn beim Kartendeck nichts ausgew�hlt wird, erscheint automatisch das Kartendeck "colors"
+        collection = document.getElementById("kartensatz").getElementsByTagName("input"); //Auswahl des Kartensatzes
+        //Wenn kein anderes Deck ausgew�hlt wird, erscheint automatisch das Kartendeck "colors"
         if (currentCardDeck == undefined)
             currentCardDeck = Aufgabe5.decks["colors"];
-        //Karten werden erzeugt
-        populateCardArray(currentCardDeck.content);
-        //Spielfeld wird erzeugt
-        createGame();
-        //Spielinfo wird erzeugt
-        playerInfo();
-        //Starteinstellung wird nach der Einstellung gel�scht
-        document.getElementById("starteinstellungen").remove();
+        populateCardArray(currentCardDeck.content); //Karten werden erzeugt 
+        createGame(); //Spielfeld wird erzeugt
+        playerInfo(); //Spielinfo wird erzeugt
+        document.getElementById("starteinstellungen").remove(); //Starteinstellung wird nach Einstellung gel�scht
     }
     Aufgabe5.main = main;
-    //F�r den Kartenpaare Slider
     function onInputEvent(value) {
         document.getElementById("kartenpaare-label").innerText = value.toString();
         Aufgabe5.numPairs = value;

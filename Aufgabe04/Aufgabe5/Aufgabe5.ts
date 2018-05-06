@@ -158,61 +158,49 @@ namespace Aufgabe5 {
         
         let collection: NodeListOf<Element> = document.getElementById("spieleranzahl").getElementsByTagName("input");
 
-        // i=0, größer als die Länge von collection und wird hochgezählt
+        
     
-        for (let i = 0; i < collection.length; i++) {
+        for (let i = 0; i < collection.length; i++) { // i=0, größer als die Länge von collection, i wird hochgezählt
 
-            //Spieleranzahl wird hochgezählt 
-            
-            if ((<HTMLInputElement>collection[i]).checked) {
-                spielerAnzahl = i + 1;
+            if ((<HTMLInputElement>collection[i]).checked) {  
+                spielerAnzahl = i + 1; //Spieleranzahl wird hochgezählt 
                 break;
             }
         }
         
-        //Eingabe Spielernamen
-        collection = document.getElementById("name").getElementsByTagName("input");
-
-        //Wenn kein Spielername eingegeben wurde, heißt der Spieler Cindy
-        
-        for (let i = 0; i < collection.length; i++) {
-            if ((<HTMLInputElement>collection[i]).value == "" && i == 0) {
-                playerNames.push("Cindy")
+       
+        collection = document.getElementById("name").getElementsByTagName("input");  //Eingabe Spielernamen
+            
+        for (let i = 0; i < collection.length; i++) { 
+            if ((<HTMLInputElement>collection[i]).value == "" && i == 0) { //Wenn kein Spielername eingegeben wurde, 
+                playerNames.push("Cindy") //heißt der Spieler Cindy
             }
             
-            //Ansonsten wird der Spielername ins Spiel gepusht
             
-            else if ((<HTMLInputElement>collection[i]).value != "") {
+            
+            else if ((<HTMLInputElement>collection[i]).value != "") { //Ansonsten wird der Spielername ins Spiel gepusht 
                 playerNames.push((<HTMLInputElement>collection[i]).value)
             }
         }
         
-        //Auswahl des Kartensatzes
-        collection = document.getElementById("kartensatz").getElementsByTagName("input");
+        
+        collection = document.getElementById("kartensatz").getElementsByTagName("input"); //Auswahl des Kartensatzes
 
         
-        //Wenn beim Kartendeck nichts ausgewählt wird, erscheint automatisch das Kartendeck "colors"
+        //Wenn kein anderes Deck ausgewählt wird, erscheint automatisch das Kartendeck "colors"
         if (currentCardDeck == undefined) //wenn kein Kartendeck definiert ist
             currentCardDeck = decks["colors"];
         
-        //Karten werden erzeugt
-        populateCardArray(currentCardDeck.content);
-
-        //Spielfeld wird erzeugt
-        createGame();
-
-        //Spielinfo wird erzeugt
-        playerInfo();
         
-        //Starteinstellung wird nach der Einstellung gelöscht
-        document.getElementById("starteinstellungen").remove()
+        populateCardArray(currentCardDeck.content); //Karten werden erzeugt 
+        createGame();//Spielfeld wird erzeugt
+        playerInfo(); //Spielinfo wird erzeugt
+        document.getElementById("starteinstellungen").remove() //Starteinstellung wird nach Einstellung gelöscht
 
     }
     
-    //Für den Kartenpaare Slider
     
-
-    export function onInputEvent(value: number) {
+    export function onInputEvent(value: number) { //slider
         document.getElementById("kartenpaare-label").innerText = value.toString();
         numPairs = value;
     }
