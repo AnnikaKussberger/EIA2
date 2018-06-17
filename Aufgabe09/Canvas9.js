@@ -32,10 +32,11 @@ var Canvas09;
             drawBigFish(x, y);
         }
         //Schleife Bubbles
-        for (let i = 0; i < 5; i++) {
-            let x = Math.random() * crc2.canvas.width;
-            let y = Math.random() * crc2.canvas.height;
-            drawBubble(x, y, 4);
+        for (let i = 0; i < 15; i++) {
+            let x = Math.random() * (100 - 150) + 150;
+            let y = Math.random() * 380;
+            let r = Math.random() * 5;
+            drawBubble(x, y, r);
         }
     }
     //sand

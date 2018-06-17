@@ -39,12 +39,14 @@ namespace Canvas09 {
 
         }
         //Schleife Bubbles
-        for (let i: number = 0; i < 5; i++) {
-            let x: number = Math.random() * crc2.canvas.width;
-            let y: number = Math.random() * crc2.canvas.height;
-            drawBubble(x, y, 4);
-
+        for (let i: number = 0; i < 15; i++) {
+            let x: number = Math.random() * (100 - 150) + 150;
+            let y: number = Math.random() * 380;
+            let r: number = Math.random() * 5;
+            drawBubble(x, y, r);
         }
+
+        
     }
     //sand
     function drawSand(_x: number, _y: number): void {
