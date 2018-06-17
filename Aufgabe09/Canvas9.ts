@@ -29,8 +29,8 @@ namespace Canvas09 {
             let x: number = Math.random() * crc2.canvas.width;
             let y: number = Math.random() * crc2.canvas.height;
             drawSmallFish(x, y);
-            
-            }
+
+        }
         //Schleife mehrere groﬂe Fische
         for (let i: number = 0; i < 5; i++) {
             let x: number = Math.random() * crc2.canvas.width;
@@ -42,7 +42,7 @@ namespace Canvas09 {
         for (let i: number = 0; i < 5; i++) {
             let x: number = Math.random() * crc2.canvas.width;
             let y: number = Math.random() * crc2.canvas.height;
-            drawBubble(x, y,4);
+            drawBubble(x, y, 4);
 
         }
     }
@@ -146,7 +146,7 @@ namespace Canvas09 {
         crc2.beginPath();
         crc2.fillStyle = "rgba(51, 204, 0,0.5)";
         crc2.moveTo(_x, _y);
-        crc2.bezierCurveTo(_x + 10, _y - 40, _x - 30, _y - 91, _x + 20 , _y - 100);
+        crc2.bezierCurveTo(_x + 10, _y - 40, _x - 30, _y - 91, _x + 20, _y - 100);
         crc2.bezierCurveTo(_x - 30, _y - 105, _x - 10, _y - 40, _x - 10, _y);
         crc2.closePath();
         crc2.fill();
@@ -199,19 +199,19 @@ namespace Canvas09 {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
+        
+        //Rest Box
+        crc2.beginPath();
+        crc2.fillStyle = "rgba(128,64,0,0.6)";
+        crc2.moveTo(_x - 60, _y - 10);
+        crc2.lineTo(_x - 20, _y - 30);
+        crc2.lineTo(_x + 40,_y - 20); 
+        crc2.lineTo(_x, _y )
+        crc2.fill();
+        crc2.stroke();
+        
+        
     }
-    //cover
-    /* ctx.beginPath();
-     ctx.fillStyle = "rgba(100,100,100,1)";
-     ctx.moveTo(260, 540);
-     ctx.arc(260, 520, 20, 0.5 * Math.PI, 1.5 * Math.PI);
-     ctx.lineTo(200, 490);
-     //ctx.moveTo(200, 530);
-     ctx.arc(200, 510, 20, 0.5 * Math.PI, 1.5 * Math.PI);
-     ctx.fill();
-     ctx.stroke();
-     ctx.closePath();
-        */
 
 
 }

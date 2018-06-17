@@ -179,6 +179,15 @@ var Canvas09;
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
+        //Rest Box
+        crc2.beginPath();
+        crc2.fillStyle = "rgba(128,64,0,0.6)";
+        crc2.moveTo(_x - 60, _y - 10);
+        crc2.lineTo(_x - 20, _y - 30);
+        crc2.lineTo(_x + 40, _y - 20);
+        crc2.lineTo(_x, _y);
+        crc2.fill();
+        crc2.stroke();
     }
 })(Canvas09 || (Canvas09 = {}));
 //# sourceMappingURL=Canvas9.js.map
