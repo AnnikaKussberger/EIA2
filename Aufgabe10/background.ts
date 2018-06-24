@@ -41,7 +41,6 @@ namespace Animation10 {
         }
         
         imgData = crc2.getImageData(0,0,canvas.width,canvas.height);
-        imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
         animate();
 
     }
@@ -116,13 +115,13 @@ namespace Animation10 {
 
     //Oktopus head
     function drawOctopus(_x: number, _y: number, _radius: number): void {
-        ctx.beginPath();
-        ctx.fillStyle = "rgba(142, 80, 103,1)";
-        ctx.arc(_x, _y, _radius, 0.5 * Math.PI, 1.5 * Math.PI);
+        crc2.beginPath();
+        crc2.fillStyle = "rgba(142, 80, 103,1)";
+        crc2.arc(_x, _y, _radius, 0.5 * Math.PI, 1.5 * Math.PI);
         crc2.lineTo(_x + 20, _y - 15);
-        ctx.arc(_x + 20, _y, _radius, 1.5 * Math.PI, 0.5 * Math.PI);
-        ctx.fill();
-        ctx.closePath();
+        crc2.arc(_x + 20, _y, _radius, 1.5 * Math.PI, 0.5 * Math.PI);
+        crc2.fill();
+        crc2.closePath();
 
         //Octopus tentacles
         crc2.moveTo(_x, _y + 15);
@@ -133,12 +132,12 @@ namespace Animation10 {
         crc2.lineTo(_x + 11, _y + 40);
 
         //Octopus Eyes
-        ctx.moveTo(_x + 22, _y);
-        ctx.arc(_x + 22, _y, 1, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.moveTo(_x, _y);
-        ctx.arc(_x, _y, 1, 0, Math.PI * 2);
-        ctx.stroke();
+        crc2.moveTo(_x + 22, _y);
+        crc2.arc(_x + 22, _y, 1, 0, Math.PI * 2);
+        crc2.stroke();
+        crc2.moveTo(_x, _y);
+        crc2.arc(_x, _y, 1, 0, Math.PI * 2);
+        crc2.stroke();
     }
 
 

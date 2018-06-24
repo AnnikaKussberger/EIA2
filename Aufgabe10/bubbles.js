@@ -9,11 +9,11 @@ var Animation10;
             }
         }
         drawBubble() {
-            Animation10.ctx.beginPath();
-            Animation10.ctx.fillStyle = "rgba(51, 153, 255,1)";
-            Animation10.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            Animation10.ctx.closePath();
-            Animation10.ctx.fill();
+            Animation10.crc2.beginPath();
+            Animation10.crc2.fillStyle = "rgba(51, 153, 255,1)";
+            Animation10.crc2.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            Animation10.crc2.closePath();
+            Animation10.crc2.fill();
             //ctx.stroke();
         }
     }

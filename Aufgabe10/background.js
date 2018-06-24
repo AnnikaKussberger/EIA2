@@ -29,7 +29,6 @@ var Animation10;
             bubbles.push(bubble);
         }
         imgData = Animation10.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        imgData = Animation10.ctx.getImageData(0, 0, canvas.width, canvas.height);
         animate();
     }
     function background() {
@@ -95,13 +94,13 @@ var Animation10;
     }
     //Oktopus head
     function drawOctopus(_x, _y, _radius) {
-        Animation10.ctx.beginPath();
-        Animation10.ctx.fillStyle = "rgba(142, 80, 103,1)";
-        Animation10.ctx.arc(_x, _y, _radius, 0.5 * Math.PI, 1.5 * Math.PI);
+        Animation10.crc2.beginPath();
+        Animation10.crc2.fillStyle = "rgba(142, 80, 103,1)";
+        Animation10.crc2.arc(_x, _y, _radius, 0.5 * Math.PI, 1.5 * Math.PI);
         Animation10.crc2.lineTo(_x + 20, _y - 15);
-        Animation10.ctx.arc(_x + 20, _y, _radius, 1.5 * Math.PI, 0.5 * Math.PI);
-        Animation10.ctx.fill();
-        Animation10.ctx.closePath();
+        Animation10.crc2.arc(_x + 20, _y, _radius, 1.5 * Math.PI, 0.5 * Math.PI);
+        Animation10.crc2.fill();
+        Animation10.crc2.closePath();
         //Octopus tentacles
         Animation10.crc2.moveTo(_x, _y + 15);
         Animation10.crc2.lineTo(_x, _y + 40);
@@ -110,12 +109,12 @@ var Animation10;
         Animation10.crc2.moveTo(_x + 11, _y + 15);
         Animation10.crc2.lineTo(_x + 11, _y + 40);
         //Octopus Eyes
-        Animation10.ctx.moveTo(_x + 22, _y);
-        Animation10.ctx.arc(_x + 22, _y, 1, 0, Math.PI * 2);
-        Animation10.ctx.stroke();
-        Animation10.ctx.moveTo(_x, _y);
-        Animation10.ctx.arc(_x, _y, 1, 0, Math.PI * 2);
-        Animation10.ctx.stroke();
+        Animation10.crc2.moveTo(_x + 22, _y);
+        Animation10.crc2.arc(_x + 22, _y, 1, 0, Math.PI * 2);
+        Animation10.crc2.stroke();
+        Animation10.crc2.moveTo(_x, _y);
+        Animation10.crc2.arc(_x, _y, 1, 0, Math.PI * 2);
+        Animation10.crc2.stroke();
     }
     //seagras open right
     function drawSeagrasOpenRight(_x, _y) {
