@@ -4,7 +4,9 @@ namespace Animation10 {
     export let ctx: CanvasRenderingContext2D;
     let fishes: BigFish[] = [];
     let bubbles: Bubble[] = [];
+    let sfishes: smallFish[] =[];
     let n: number = 8;
+    let s: number= 20;
     let b: number = 20;
     let imgData: ImageData;
 
@@ -29,6 +31,14 @@ namespace Animation10 {
             fish.x = Math.random() * crc2.canvas.width;
             fish.y = Math.random() * crc2.canvas.height;
             fishes.push(fish);
+
+        }
+        //Schleife mehrere kleine Fische
+        for (let i: number = 0; i < s; i++) {
+            let sfish: smallFish = new smallFish();
+            sfish.x = Math.random() * crc2.canvas.width;
+            sfish.y = Math.random() * crc2.canvas.height;
+            sfishes.push(sfish);
 
         }
         //Schleife Bubbles
@@ -77,6 +87,9 @@ namespace Animation10 {
         for (let i: number = 0; i < bubbles.length; i++) {
             bubbles[i].move();
         }
+        for (let i: number = 0; i < sfishes.length; i++) {
+            sfishes[i].move();
+        }
     }
 
     function drawObjects(): void {
@@ -85,6 +98,9 @@ namespace Animation10 {
     }
         for (let i: number = 0; i < bubbles.length; i++) {
             bubbles[i].drawBubble();
+        }
+        for (let i: number = 0; i < sfishes.length; i++) {
+            sfishes[i].drawSfish();
         }
     }
      //sand

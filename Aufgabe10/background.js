@@ -3,7 +3,9 @@ var Animation10;
     window.addEventListener("load", init);
     let fishes = [];
     let bubbles = [];
+    let sfishes = [];
     let n = 8;
+    let s = 20;
     let b = 20;
     let imgData;
     function init(_event) {
@@ -19,6 +21,13 @@ var Animation10;
             fish.x = Math.random() * Animation10.crc2.canvas.width;
             fish.y = Math.random() * Animation10.crc2.canvas.height;
             fishes.push(fish);
+        }
+        //Schleife mehrere kleine Fische
+        for (let i = 0; i < s; i++) {
+            let sfish = new Animation10.smallFish();
+            sfish.x = Math.random() * Animation10.crc2.canvas.width;
+            sfish.y = Math.random() * Animation10.crc2.canvas.height;
+            sfishes.push(sfish);
         }
         //Schleife Bubbles
         for (let i = 0; i < b; i++) {
@@ -59,6 +68,9 @@ var Animation10;
         for (let i = 0; i < bubbles.length; i++) {
             bubbles[i].move();
         }
+        for (let i = 0; i < sfishes.length; i++) {
+            sfishes[i].move();
+        }
     }
     function drawObjects() {
         for (let i = 0; i < fishes.length; i++) {
@@ -66,6 +78,9 @@ var Animation10;
         }
         for (let i = 0; i < bubbles.length; i++) {
             bubbles[i].drawBubble();
+        }
+        for (let i = 0; i < sfishes.length; i++) {
+            sfishes[i].drawSfish();
         }
     }
     //sand
