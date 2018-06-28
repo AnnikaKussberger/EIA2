@@ -16,7 +16,7 @@ namespace Animation10 {
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-        ctx = canvas.getContext("2d");
+        //ctx = canvas.getContext("2d");
         console.log(crc2);
         console.log(ctx);
 

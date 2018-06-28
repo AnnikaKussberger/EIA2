@@ -11,7 +11,7 @@ var Animation10;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         Animation10.crc2 = canvas.getContext("2d");
-        Animation10.ctx = canvas.getContext("2d");
+        //ctx = canvas.getContext("2d");
         console.log(Animation10.crc2);
         console.log(Animation10.ctx);
         background();
