@@ -11,7 +11,7 @@ namespace L11 {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         console.log(crc2);
-        canvas.addEventListener("click", insertFlakes);
+        canvas.addEventListener("click", createFlakes);
 
 
         background();
@@ -43,8 +43,8 @@ namespace L11 {
         animate();
 
     }
-    //Futterflocken-Funktion
-    function insertFlakes(_event: MouseEvent): void {
+    //Futterflocken
+    function createFlakes(_event: MouseEvent): void {
         let newPositionX: number = _event.clientX;
         let newPositionY: number = _event.clientY;
 

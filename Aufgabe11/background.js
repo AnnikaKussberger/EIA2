@@ -8,7 +8,7 @@ var L11;
         canvas = document.getElementsByTagName("canvas")[0];
         L11.crc2 = canvas.getContext("2d");
         console.log(L11.crc2);
-        canvas.addEventListener("click", insertFlakes);
+        canvas.addEventListener("click", createFlakes);
         L11.background();
         //Schleife mehrere gro�e Fische
         for (let i = 0; i < 8; i++) {
@@ -31,8 +31,8 @@ var L11;
         imgData = L11.crc2.getImageData(0, 0, canvas.width, canvas.height);
         animate();
     }
-    //Futterflocken-Funktion
-    function insertFlakes(_event) {
+    //Futterflocken
+    function createFlakes(_event) {
         let newPositionX = _event.clientX;
         let newPositionY = _event.clientY;
         for (let i = 0; i < 3; i++) {
