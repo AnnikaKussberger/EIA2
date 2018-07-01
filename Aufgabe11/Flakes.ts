@@ -1,4 +1,4 @@
-namespace Aufgabe11 {
+namespace L11 {
     export class Flake extends Superclass {
      
         color: string;
