@@ -1,5 +1,5 @@
-var Aufgabe11;
-(function (Aufgabe11) {
+var L11;
+(function (L11) {
     class Superclass {
         constructor() {
             //steht nix drin    
@@ -11,6 +11,6 @@ var Aufgabe11;
             //steht nix drin         
         }
     }
-    Aufgabe11.Superclass = Superclass;
-})(Aufgabe11 || (Aufgabe11 = {}));
+    L11.Superclass = Superclass;
+})(L11 || (L11 = {}));
 //# sourceMappingURL=Superclass.js.map

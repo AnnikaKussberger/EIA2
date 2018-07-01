@@ -1,4 +1,4 @@
-namespace Aufgabe11 {
+namespace L11 {
     export class Superclass {
         x: number;
         y: number;
