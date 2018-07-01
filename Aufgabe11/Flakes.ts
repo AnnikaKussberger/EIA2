@@ -5,36 +5,27 @@ namespace L11 {
         stopdropping: number;
         scale: number;
         
-        constructor(newPositionX: number, newPositionY: number) {
-            super();
-            this.setRandomColor();
-            this.x = newPositionX;
-            this.y = newPositionY;
-            this.scale = 3;
-            this.stopdropping = Math.random() * (220 - 200) + 350;    
-        }
+        constructor( _color: string ) {
+            super ( _color );
+}
+        setRandomPosition(): void {
+            this.x = Math.random() * crc2.canvas.width;
+            this.y = 0;
+            this.radius = Math.random() * 10;
+}
         
-        setRandomColor(): void {
-            let r: number = Math.floor(Math.random() * 3);
-            switch (r) {
-                case 0:
-                    this.color = "#ff1a1a";
-                    break;
-                case 1:
-                    this.color = "#33cc33";
-                    break;
-                case 2:
-                    this.color = "#1a75ff";
-            }
-        }
         move(): void {
-            this.x += 0;
-            this.y += 1;
 
-            if (this.y > this.stopdropping) {
-                this.y = this.stopdropping;
+            this.x += 0;
+
+            if ( this.y < 600 ) {
+                this.y += 2;
             }
-        }
+
+            else if ( this.y >= 600 ) {
+                this.y += 0;
+            }
+}
         
         draw(): void {
             crc2.fillStyle = this.color;
@@ -42,9 +33,6 @@ namespace L11 {
             crc2.arc(this.x, this.y, this.scale, 0, 2 * Math.PI, true);
             crc2.closePath();
             crc2.fill();
-
-            //crc2.strokeStyle = "transparent";
-            //crc2.stroke(); 
         }
         
         

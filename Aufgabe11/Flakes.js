@@ -1,11 +1,11 @@
 var L11;
 (function (L11) {
     class Flake extends L11.Superclass {
-        constructor(newPositionX, newPositionY) {
+        constructor(_X, _Y) {
             super();
             this.setRandomColor();
-            this.x = newPositionX;
-            this.y = newPositionY;
+            this.x = _X;
+            this.y = _Y;
             this.scale = 3;
             this.stopdropping = Math.random() * (220 - 200) + 350;
         }
@@ -35,8 +35,6 @@ var L11;
             L11.crc2.arc(this.x, this.y, this.scale, 0, 2 * Math.PI, true);
             L11.crc2.closePath();
             L11.crc2.fill();
-            //crc2.strokeStyle = "transparent";
-            //crc2.stroke(); 
         }
     }
     L11.Flake = Flake;
