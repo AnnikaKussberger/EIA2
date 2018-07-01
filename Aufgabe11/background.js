@@ -1,202 +1,64 @@
-var Animation10;
-(function (Animation10) {
+var L11;
+(function (L11) {
     window.addEventListener("load", init);
-    let fishes = [];
-    let bubbles = [];
-    let sfishes = [];
-    let n = 8;
-    let s = 20;
-    let b = 20;
+    let movingObjects = [];
     let imgData;
+    let canvas;
     function init(_event) {
-        let canvas = document.getElementsByTagName("canvas")[0];
-        Animation10.crc2 = canvas.getContext("2d");
-        //ctx = canvas.getContext("2d");
-        console.log(Animation10.crc2);
-        console.log(Animation10.ctx);
-        background();
+        canvas = document.getElementsByTagName("canvas")[0];
+        L11.crc2 = canvas.getContext("2d");
+        console.log(L11.crc2);
+        canvas.addEventListener("click", insertFlakes);
+        L11.background();
         //Schleife mehrere gro�e Fische
-        for (let i = 0; i < n; i++) {
-            let fish = new Animation10.BigFish();
-            fish.x = Math.random() * Animation10.crc2.canvas.width;
-            fish.y = Math.random() * Animation10.crc2.canvas.height;
-            fishes.push(fish);
+        for (let i = 0; i < 8; i++) {
+            let fish = new L11.BigFish();
+            movingObjects.push(fish);
         }
-        //Schleife mehrere kleine Fische
-        for (let i = 0; i < s; i++) {
-            let sfish = new Animation10.smallFish();
-            sfish.x = Math.random() * Animation10.crc2.canvas.width;
-            sfish.y = Math.random() * Animation10.crc2.canvas.height;
+        /*Schleife mehrere kleine Fische
+        for (let i: number = 0; i < s; i++) {
+            let sfish: smallFish = new smallFish();
+            sfish.x = Math.random() * crc2.canvas.width;
+            sfish.y = Math.random() * crc2.canvas.height;
             sfishes.push(sfish);
-        }
+
+        }*/
         //Schleife Bubbles
-        for (let i = 0; i < b; i++) {
-            let bubble = new Animation10.Bubble();
-            bubble.x = Math.random() * (100 - 150) + 150;
-            bubble.y = Math.random() * 380;
-            bubble.radius = Math.random() * 5;
-            bubbles.push(bubble);
+        for (let i = 0; i < 20; i++) {
+            let bubble = new L11.Bubble();
+            movingObjects.push(bubble);
         }
-        imgData = Animation10.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        imgData = L11.crc2.getImageData(0, 0, canvas.width, canvas.height);
         animate();
     }
-    function background() {
-        drawWater(0, 400);
-        drawSand(0, 400);
-        //drawSmallFish(230, 200);
-        //drawBigFish(100, 300);
-        //drawBubble(300, 380, 4);
-        drawOctopus(100, 500, 15);
-        drawSeagrasOpenRight(70, 400);
-        drawSeagrasOpenLeft(240, 400);
-        drawSeagrasOpenLeft(290, 390);
-        drawRock(360, 430);
-        drawTreasureChest(260, 540);
+    //Futterflocken-Funktion
+    function insertFlakes(_event) {
+        let newPositionX = _event.clientX;
+        let newPositionY = _event.clientY;
+        for (let i = 0; i < 3; i++) {
+            let flakes = new L11.Flake(newPositionX, newPositionY);
+            movingObjects.push(flakes);
+            newPositionX += Math.random() * 30;
+            newPositionY += Math.random() * 40;
+            newPositionX -= Math.random() * 20;
+        }
     }
     function animate() {
         window.setTimeout(animate, 10);
-        Animation10.crc2.clearRect(0, 0, Animation10.crc2.canvas.width, Animation10.crc2.canvas.height);
-        //ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        Animation10.crc2.putImageData(imgData, 0, 0);
+        L11.crc2.clearRect(0, 0, L11.crc2.canvas.width, L11.crc2.canvas.height);
+        L11.crc2.putImageData(imgData, 0, 0);
         moveObjects();
         drawObjects();
     }
     function moveObjects() {
-        for (let i = 0; i < fishes.length; i++) {
-            fishes[i].move();
-        }
-        for (let i = 0; i < bubbles.length; i++) {
-            bubbles[i].move();
-        }
-        for (let i = 0; i < sfishes.length; i++) {
-            sfishes[i].move();
+        for (let i = 0; i < movingObjects.length; i++) {
+            movingObjects[i].move();
         }
     }
     function drawObjects() {
-        for (let i = 0; i < fishes.length; i++) {
-            fishes[i].draw();
-        }
-        for (let i = 0; i < bubbles.length; i++) {
-            bubbles[i].drawBubble();
-        }
-        for (let i = 0; i < sfishes.length; i++) {
-            sfishes[i].drawSfish();
+        for (let i = 0; i < movingObjects.length; i++) {
+            movingObjects[i].draw();
         }
     }
-    //sand
-    function drawSand(_x, _y) {
-        Animation10.crc2.beginPath();
-        Animation10.crc2.fillStyle = "rgba(228,186,138,0.5)";
-        Animation10.crc2.moveTo(_x, _y);
-        Animation10.crc2.bezierCurveTo(_x + 150, _y - 20, _x + 200, _y - 20, _x + 360, _y);
-        Animation10.crc2.lineTo(_x + 360, _y + 240);
-        Animation10.crc2.lineTo(_x, _y + 240);
-        Animation10.crc2.closePath();
-        //crc2.stroke();
-        Animation10.crc2.fill();
-    }
-    //water
-    function drawWater(_x, _y) {
-        Animation10.crc2.beginPath();
-        Animation10.crc2.fillStyle = "rgba(71,209,144,0.5)";
-        Animation10.crc2.moveTo(_x, _y);
-        Animation10.crc2.bezierCurveTo(_x + 150, _y - 20, _x + 200, _y - 20, _x + 360, _y);
-        Animation10.crc2.lineTo(_x + 360, _y - 400);
-        Animation10.crc2.lineTo(_x, _y - 400);
-        Animation10.crc2.closePath();
-        //crc2.stroke();
-        Animation10.crc2.fill();
-    }
-    //Oktopus head
-    function drawOctopus(_x, _y, _radius) {
-        Animation10.crc2.beginPath();
-        Animation10.crc2.fillStyle = "rgba(142, 80, 103,1)";
-        Animation10.crc2.arc(_x, _y, _radius, 0.5 * Math.PI, 1.5 * Math.PI);
-        Animation10.crc2.lineTo(_x + 20, _y - 15);
-        Animation10.crc2.arc(_x + 20, _y, _radius, 1.5 * Math.PI, 0.5 * Math.PI);
-        Animation10.crc2.fill();
-        Animation10.crc2.closePath();
-        //Octopus tentacles
-        Animation10.crc2.moveTo(_x, _y + 15);
-        Animation10.crc2.lineTo(_x, _y + 40);
-        Animation10.crc2.moveTo(_x + 22, _y + 15);
-        Animation10.crc2.lineTo(_x + 22, _y + 40);
-        Animation10.crc2.moveTo(_x + 11, _y + 15);
-        Animation10.crc2.lineTo(_x + 11, _y + 40);
-        //Octopus Eyes
-        Animation10.crc2.moveTo(_x + 22, _y);
-        Animation10.crc2.arc(_x + 22, _y, 1, 0, Math.PI * 2);
-        Animation10.crc2.stroke();
-        Animation10.crc2.moveTo(_x, _y);
-        Animation10.crc2.arc(_x, _y, 1, 0, Math.PI * 2);
-        Animation10.crc2.stroke();
-    }
-    //seagras open right
-    function drawSeagrasOpenRight(_x, _y) {
-        Animation10.crc2.beginPath();
-        Animation10.crc2.fillStyle = "rgba(51, 204, 0,0.5)";
-        Animation10.crc2.moveTo(_x, _y);
-        Animation10.crc2.bezierCurveTo(_x + 10, _y - 40, _x - 30, _y - 91, _x + 20, _y - 100);
-        Animation10.crc2.bezierCurveTo(_x - 30, _y - 105, _x - 10, _y - 40, _x - 10, _y);
-        Animation10.crc2.closePath();
-        Animation10.crc2.fill();
-        //crc2.stroke 
-    }
-    //seagras open left
-    function drawSeagrasOpenLeft(_x, _y) {
-        Animation10.crc2.beginPath();
-        Animation10.crc2.fillStyle = "rgba(51, 204, 0,0.5)";
-        Animation10.crc2.moveTo(_x, _y);
-        Animation10.crc2.bezierCurveTo(_x + 20, _y - 40, _x + 40, _y - 91, _x - 10, _y - 100);
-        Animation10.crc2.bezierCurveTo(_x + 24, _y - 75, _x + 10, _y - 60, _x - 15, _y);
-        Animation10.crc2.closePath();
-        Animation10.crc2.fill();
-        //crc2.st 
-    }
-    //rock
-    function drawRock(_x, _y) {
-        Animation10.crc2.beginPath();
-        Animation10.crc2.fillStyle = "rgba(105,105,105,0.6)";
-        Animation10.crc2.moveTo(_x, _y);
-        Animation10.crc2.lineTo(_x - 20, _y);
-        Animation10.crc2.lineTo(_x - 50, _y + 10);
-        Animation10.crc2.lineTo(_x - 60, _y + 20);
-        Animation10.crc2.lineTo(_x - 60, _y + 30);
-        Animation10.crc2.lineTo(_x, _y + 30);
-        Animation10.crc2.closePath();
-        Animation10.crc2.fill();
-        //crc2.str  
-    }
-    //box right piece
-    function drawTreasureChest(_x, _y) {
-        Animation10.crc2.beginPath();
-        Animation10.crc2.fillStyle = "rgba(128,64,0,0.6)";
-        Animation10.crc2.moveTo(_x, _y);
-        Animation10.crc2.lineTo(_x, _y + 50);
-        Animation10.crc2.lineTo(_x + 40, _y + 30);
-        Animation10.crc2.lineTo(_x + 40, _y - 20);
-        Animation10.crc2.closePath();
-        Animation10.crc2.fill();
-        Animation10.crc2.stroke();
-        //box left piece
-        Animation10.crc2.beginPath();
-        Animation10.crc2.fillStyle = "rgba(128,64,0,0.6)";
-        Animation10.crc2.moveTo(_x, _y);
-        Animation10.crc2.lineTo(_x - 60, _y - 10);
-        Animation10.crc2.lineTo(_x - 60, _y + 40);
-        Animation10.crc2.lineTo(_x, _y + 50);
-        Animation10.crc2.closePath();
-        Animation10.crc2.fill();
-        Animation10.crc2.stroke();
-        //Rest Box
-        Animation10.crc2.beginPath();
-        Animation10.crc2.fillStyle = "rgba(128,64,0,0.6)";
-        Animation10.crc2.moveTo(_x - 60, _y - 10);
-        Animation10.crc2.lineTo(_x - 20, _y - 30);
-        Animation10.crc2.lineTo(_x + 40, _y - 20);
-        Animation10.crc2.lineTo(_x, _y);
-        Animation10.crc2.fill();
-        Animation10.crc2.stroke();
-    }
-})(Animation10 || (Animation10 = {}));
+})(L11 || (L11 = {}));
 //# sourceMappingURL=background.js.map
