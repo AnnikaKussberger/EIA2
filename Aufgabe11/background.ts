@@ -1,7 +1,7 @@
 namespace L11 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
-    let movingObjects : Superclass[] = [];
+    let movingObjects: Superclass[] = [];
     let imgData: ImageData;
     let canvas: HTMLCanvasElement;
 
