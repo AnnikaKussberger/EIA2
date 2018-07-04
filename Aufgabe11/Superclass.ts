@@ -2,7 +2,7 @@ namespace L11 {
     export class Superclass {
         x: number;
         y: number;
-        radius: number
+        radius: number;
         color: number; 
         
         

@@ -13,7 +13,7 @@ var L11_Inheritance;
             stars.push(star);
             let rect = new L11_Inheritance.Rect("#ff0000");
             stars.push(rect);
-            let circle = new L11_Inheritance.Circle("#ff00ff");
+            let circle = new L11_Inheritance.Triangle("#ff00ff");
             stars.push(circle);
         }
         animate();
@@ -35,7 +35,7 @@ var L11_Inheritance;
             stars.push(rect);
         }
         else {
-            let circle = new L11_Inheritance.Circle("#58abff");
+            let circle = new L11_Inheritance.Triangle("#58abff");
             circle.x = _x;
             circle.y = _y;
             stars.push(circle);
