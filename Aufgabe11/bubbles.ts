@@ -2,8 +2,8 @@ namespace L11 {
     export class Bubble extends Superclass {
 
         radius: number;
-        constructor() {
-            super();
+        constructor(_x: number, _y:number) {
+            super(_x,_y);
             this.setRandomPosition();
         }
         setRandomPosition(): void {

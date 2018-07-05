@@ -1,6 +1,15 @@
 var L11;
 (function (L11) {
-    class Bubble {
+    class Bubble extends L11.Superclass {
+        constructor(_x, _y) {
+            super(_x, _y);
+            this.setRandomPosition();
+        }
+        setRandomPosition() {
+            this.x = Math.random() * (100 - 150) + 150;
+            this.y = Math.random() * 380;
+            this.radius = Math.random() * 5;
+        }
         move() {
             this.x += 0;
             this.y -= 2;

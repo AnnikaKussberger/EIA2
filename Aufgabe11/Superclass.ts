@@ -3,11 +3,14 @@ namespace L11 {
         x: number;
         y: number;
         radius: number;
-        color: number; 
+        color: string; 
         
         
-        constructor() {
-               //steht nix drin    
+        constructor( _x: number, _y:number) {
+               //steht nix drin   
+            this.x = _x;
+            this.y = _y;
+            
         }
         
         move(): void {

@@ -1,8 +1,10 @@
 var L11;
 (function (L11) {
     class Superclass {
-        constructor() {
-            //steht nix drin    
+        constructor(_x, _y) {
+            //steht nix drin   
+            this.x = _x;
+            this.y = _y;
         }
         move() {
             //steht nix drin    

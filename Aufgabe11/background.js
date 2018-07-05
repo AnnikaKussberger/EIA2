@@ -12,7 +12,7 @@ var L11;
         L11.background();
         //Schleife mehrere gro�e Fische
         for (let i = 0; i < 8; i++) {
-            let fish = new L11.BigFish();
+            let fish = new L11.BigFish(200, 300);
             movingObjects.push(fish);
         }
         /*Schleife mehrere kleine Fische
@@ -25,7 +25,7 @@ var L11;
         }*/
         //Schleife Bubbles
         for (let i = 0; i < 20; i++) {
-            let bubble = new L11.Bubble();
+            let bubble = new L11.Bubble(100, 200);
             movingObjects.push(bubble);
         }
         imgData = L11.crc2.getImageData(0, 0, canvas.width, canvas.height);

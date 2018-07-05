@@ -1,12 +1,12 @@
 namespace L11 {
     export class Flake extends Superclass {
 
-        color: string;
+        
         stopdropping: number;
         scale: number;
 
-        constructor(_color: string) {
-            super(_color);
+        constructor(_x: number, _y:number) {
+            super(_x,_y);
         }
         setRandomPosition(): void {
             this.x = Math.random() * crc2.canvas.width;

@@ -20,7 +20,7 @@ namespace L11 {
 
         //Schleife mehrere groﬂe Fische
         for (let i: number = 0; i < 8; i++) {
-            let fish: BigFish = new BigFish();
+            let fish: BigFish = new BigFish(200,300);
             movingObjects.push(fish);
 
         }
@@ -34,7 +34,7 @@ namespace L11 {
         }*/
         //Schleife Bubbles
         for (let i: number = 0; i < 20; i++) {
-            let bubble: Bubble = new Bubble();
+            let bubble: Bubble = new Bubble(100,200);
             movingObjects.push(bubble);
 
         }
