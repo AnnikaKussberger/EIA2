@@ -1,10 +1,11 @@
 var L11;
 (function (L11) {
     class Superclass {
-        constructor(_x, _y) {
+        constructor() {
             //steht nix drin   
-            this.x = _x;
-            this.y = _y;
+            this.setRandomPosition();
+        }
+        setRandomPosition() {
         }
         move() {
             //steht nix drin    

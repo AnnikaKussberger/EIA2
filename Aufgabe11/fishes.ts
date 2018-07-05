@@ -1,10 +1,8 @@
 namespace L11 {
     export class BigFish extends Superclass {
 
-        constructor(_x: number, _y:number) {
-            super(_x,_y);
-        
-            this.setRandomPosition();
+        constructor() {
+            super();
         }
         
 

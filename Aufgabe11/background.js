@@ -12,7 +12,7 @@ var L11;
         L11.background();
         //Schleife mehrere gro�e Fische
         for (let i = 0; i < 8; i++) {
-            let fish = new L11.BigFish(200, 300);
+            let fish = new L11.BigFish();
             movingObjects.push(fish);
         }
         /*Schleife mehrere kleine Fische
@@ -25,7 +25,7 @@ var L11;
         }*/
         //Schleife Bubbles
         for (let i = 0; i < 20; i++) {
-            let bubble = new L11.Bubble(100, 200);
+            let bubble = new L11.Bubble();
             movingObjects.push(bubble);
         }
         imgData = L11.crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -35,12 +35,14 @@ var L11;
     function createFlakes(_event) {
         let newPositionX = _event.clientX;
         let newPositionY = _event.clientY;
+        console.log("1");
         for (let i = 0; i < 3; i++) {
-            let flakes = new L11.Flake(newPositionX, newPositionY);
-            movingObjects.push(flakes);
+            let flakes = new L11.Flake();
+            flakes.x = newPositionX;
+            flakes.y = newPositionY;
             newPositionX += Math.random() * 30;
             newPositionY += Math.random() * 40;
-            newPositionX -= Math.random() * 20;
+            movingObjects.push(flakes);
         }
     }
     function animate() {

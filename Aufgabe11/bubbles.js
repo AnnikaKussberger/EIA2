@@ -1,9 +1,8 @@
 var L11;
 (function (L11) {
     class Bubble extends L11.Superclass {
-        constructor(_x, _y) {
-            super(_x, _y);
-            this.setRandomPosition();
+        constructor() {
+            super();
         }
         setRandomPosition() {
             this.x = Math.random() * (100 - 150) + 150;
@@ -17,7 +16,7 @@ var L11;
                 this.y = 350;
             }
         }
-        drawBubble() {
+        draw() {
             L11.crc2.beginPath();
             L11.crc2.fillStyle = "rgba(51, 153, 255,1)";
             L11.crc2.arc(this.x, this.y, this.radius, 0, Math.PI * 2);

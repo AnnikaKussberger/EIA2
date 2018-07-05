@@ -1,9 +1,8 @@
 var L11;
 (function (L11) {
     class BigFish extends L11.Superclass {
-        constructor(_x, _y) {
-            super(_x, _y);
-            this.setRandomPosition();
+        constructor() {
+            super();
         }
         move() {
             this.x += 2;

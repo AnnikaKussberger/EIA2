@@ -20,7 +20,7 @@ namespace L11 {
 
         //Schleife mehrere groﬂe Fische
         for (let i: number = 0; i < 8; i++) {
-            let fish: BigFish = new BigFish(200,300);
+            let fish: BigFish = new BigFish();
             movingObjects.push(fish);
 
         }
@@ -34,10 +34,12 @@ namespace L11 {
         }*/
         //Schleife Bubbles
         for (let i: number = 0; i < 20; i++) {
-            let bubble: Bubble = new Bubble(100,200);
+            let bubble: Bubble = new Bubble();
             movingObjects.push(bubble);
 
         }
+        
+       
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         animate();
@@ -47,13 +49,15 @@ namespace L11 {
     function createFlakes(_event: MouseEvent): void {
         let newPositionX: number = _event.clientX;
         let newPositionY: number = _event.clientY;
+        console.log("1");
 
         for (let i: number = 0; i < 3; i++) {
-            let flakes: Flake = new Flake (newPositionX, newPositionY);
-            movingObjects.push(flakes);
+            let flakes: Flake = new Flake ();
+            flakes.x = newPositionX;
+            flakes.y = newPositionY;
             newPositionX += Math.random() * 30;
             newPositionY += Math.random() * 40;
-            newPositionX -= Math.random() * 20;
+            movingObjects.push(flakes);
         }
     }
 

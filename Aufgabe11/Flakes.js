@@ -1,29 +1,25 @@
 var L11;
 (function (L11) {
     class Flake extends L11.Superclass {
-        constructor(_x, _y) {
-            super(_x, _y);
-        }
-        setRandomPosition() {
-            this.x = Math.random() * L11.crc2.canvas.width;
-            this.y = 0;
-            this.radius = Math.random() * 10;
+        constructor() {
+            super();
         }
         move() {
-            this.x += 0;
             if (this.y < 600) {
                 this.y += 2;
             }
-            else if (this.y >= 600) {
-                this.y += 0;
-            }
         }
         draw() {
-            L11.crc2.fillStyle = this.color;
             L11.crc2.beginPath();
-            L11.crc2.arc(this.x, this.y, this.scale, 0, 2 * Math.PI, true);
-            L11.crc2.closePath();
+            L11.crc2.fillStyle = "rgba(139,69,19,1)";
+            L11.crc2.moveTo(this.x, this.y);
+            L11.crc2.bezierCurveTo(this.x + 10, this.y - 3, this.x + 20, this.y - 10, this.x + 40, this.y);
+            L11.crc2.bezierCurveTo(this.x + 20, this.y + 10, this.x + 10, this.y + 3, this.x, this.y);
+            L11.crc2.lineTo(this.x, this.y);
             L11.crc2.fill();
+            //crc2.stroke();
+            console.log("flakes");
+            //ctx.stroke();
         }
     }
     L11.Flake = Flake;

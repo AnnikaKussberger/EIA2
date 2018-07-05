@@ -6,13 +6,13 @@ namespace L11 {
         color: string; 
         
         
-        constructor( _x: number, _y:number) {
+        constructor( ) {
                //steht nix drin   
-            this.x = _x;
-            this.y = _y;
+            this.setRandomPosition();
             
         }
-        
+        setRandomPosition():void {
+            }
         move(): void {
             //steht nix drin    
         }

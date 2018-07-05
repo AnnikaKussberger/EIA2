@@ -5,34 +5,32 @@ namespace L11 {
         stopdropping: number;
         scale: number;
 
-        constructor(_x: number, _y:number) {
-            super(_x,_y);
-        }
-        setRandomPosition(): void {
-            this.x = Math.random() * crc2.canvas.width;
-            this.y = 0;
-            this.radius = Math.random() * 10;
+        constructor() {
+            super();
         }
 
         move(): void {
 
-            this.x += 0;
+           
 
             if (this.y < 600) {
                 this.y += 2;
             }
 
-            else if (this.y >= 600) {
-                this.y += 0;
-            }
+      
         }
 
         draw(): void {
-            crc2.fillStyle = this.color;
-            crc2.beginPath();
-            crc2.arc(this.x, this.y, this.scale, 0, 2 * Math.PI, true);
-            crc2.closePath();
+           crc2.beginPath();
+            crc2.fillStyle = "rgba(139,69,19,1)";
+            crc2.moveTo(this.x, this.y);
+            crc2.bezierCurveTo(this.x + 10, this.y - 3, this.x + 20, this.y - 10, this.x + 40, this.y);
+            crc2.bezierCurveTo(this.x + 20, this.y + 10, this.x + 10, this.y + 3, this.x, this.y);
+            crc2.lineTo(this.x, this.y);
             crc2.fill();
+            //crc2.stroke();
+            console.log("flakes");
+            //ctx.stroke();
         }
 
 
