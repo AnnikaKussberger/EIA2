@@ -12,6 +12,8 @@ namespace L11 {
             
         }
         setRandomPosition():void {
+            //stehtnixdrin
+            
             }
         move(): void {
             //steht nix drin    

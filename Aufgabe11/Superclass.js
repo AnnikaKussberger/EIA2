@@ -6,6 +6,7 @@ var L11;
             this.setRandomPosition();
         }
         setRandomPosition() {
+            //stehtnixdrin
         }
         move() {
             //steht nix drin    
