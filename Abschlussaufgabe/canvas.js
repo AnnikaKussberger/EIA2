@@ -10,23 +10,20 @@ var Abschluss;
         console.log(crc2);
         drawAir(0, 500);
         drawGras(0, 500);
-        //drawSmallFish(230, 200);
-        //drawBigFish(100, 300);
-        //drawBubble(300, 380, 4);
-        drawOctopus(100, 500, 15);
+        drawBalloon(100, 100, 5);
         //Schleife V�gel
         for (let i = 0; i < 5; i++) {
             let x = Math.random() * crc2.canvas.width;
             let y = Math.random() * crc2.canvas.height;
             drawBird(x, y);
         }
-        //Schleife Bubbles
-        for (let i = 0; i < 15; i++) {
-            let x = Math.random() * (100 - 150) + 150;
-            let y = Math.random() * 380;
-            let r = Math.random() * 5;
+        /*Schleife Bubbles
+        for (let i: number = 0; i < 15; i++) {
+            let x: number = Math.random() * (100 - 150) + 150;
+            let y: number = Math.random() * 380;
+            let r: number = Math.random() * 5;
             drawBubble(x, y, r);
-        }
+        }*/
     }
     //ground
     function drawGras(_x, _y) {
@@ -60,38 +57,22 @@ var Abschluss;
         crc2.arc(_x - 2.5, _y, 6, 0, Math.PI, true);
         crc2.fill();
     }
-    //bubble
-    function drawBubble(_x, _y, _radius) {
-        ctx.beginPath();
-        ctx.fillStyle = "rgba(51, 153, 255,1)";
-        ctx.arc(_x, _y, _radius, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fill();
-        //ctx.stroke();
-    }
-    //Oktopus head
-    function drawOctopus(_x, _y, _radius) {
-        ctx.beginPath();
-        ctx.fillStyle = "rgba(142, 80, 103,1)";
-        ctx.arc(_x, _y, _radius, 0.5 * Math.PI, 1.5 * Math.PI);
-        crc2.lineTo(_x + 20, _y - 15);
-        ctx.arc(_x + 20, _y, _radius, 1.5 * Math.PI, 0.5 * Math.PI);
-        ctx.fill();
-        ctx.closePath();
-        //Octopus tentacles
-        crc2.moveTo(_x, _y + 15);
-        crc2.lineTo(_x, _y + 40);
-        crc2.moveTo(_x + 22, _y + 15);
-        crc2.lineTo(_x + 22, _y + 40);
-        crc2.moveTo(_x + 11, _y + 15);
-        crc2.lineTo(_x + 11, _y + 40);
-        //Octopus Eyes
-        ctx.moveTo(_x + 22, _y);
-        ctx.arc(_x + 22, _y, 1, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.moveTo(_x, _y);
-        ctx.arc(_x, _y, 1, 0, Math.PI * 2);
-        ctx.stroke();
+    //balloon
+    function drawBalloon(_x, _y, _radius) {
+        crc2.beginPath();
+        crc2.fillStyle = "rgba(51, 153, 255,1)";
+        crc2.moveTo(_x, _y);
+        crc2.bezierCurveTo(_x - 20, _y - 14, _x - 23, _y - 35, _x, _y - 40);
+        crc2.bezierCurveTo(_x + 23, _y - 35, _x + 20, _y - 14, _x, _y);
+        crc2.lineTo(99, 140);
+        crc2.lineTo(101, 140);
+        crc2.closePath();
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(97, 104);
+        crc2.lineTo(103, 104);
+        crc2.closePath();
+        crc2.fill();
+        //crc2.stroke();
     }
 })(Abschluss || (Abschluss = {}));
 //# sourceMappingURL=canvas.js.map
