@@ -13,22 +13,24 @@ namespace Abschluss {
 
         drawAir(0, 500);
         drawGras(0, 500);
-        drawBalloon(100,100, 5);
+        drawTrunk(20, 510);
+        drawCrown(20,300);
+        
          
         //Schleife Vögel
         for (let i: number = 0; i < 5; i++) {
             let x: number = Math.random() * crc2.canvas.width;
-            let y: number = Math.random() * crc2.canvas.height;
+            let y: number = Math.random() * 400;
             drawBird(x, y);
 
         }
-        /*Schleife Bubbles
-        for (let i: number = 0; i < 15; i++) {
-            let x: number = Math.random() * (100 - 150) + 150;
-            let y: number = Math.random() * 380;
-            let r: number = Math.random() * 5;
-            drawBubble(x, y, r);
-        }*/
+       
+        //Schleife Balloon
+        for (let i: number = 0; i < 7; i++) {
+            let x: number = Math.random() * (90 - 200) + 300;
+            let y: number = Math.random() * 400;
+            drawBalloon(x, y);
+        }
 
         
     }
@@ -69,25 +71,47 @@ namespace Abschluss {
     }
 
     //balloon
-    function drawBalloon(_x: number, _y: number, _radius: number): void {
+    function drawBalloon(_x: number, _y: number): void {
         crc2.beginPath();
         crc2.fillStyle = "rgba(51, 153, 255,1)";
         crc2.moveTo(_x, _y);
         crc2.bezierCurveTo(_x - 20, _y - 14, _x - 23, _y - 35, _x, _y - 40);
         crc2.bezierCurveTo(_x + 23, _y -35, _x + 20, _y - 14, _x, _y);
-        crc2.lineTo(99,140);
-        crc2.lineTo(101,140);
+        crc2.lineTo(_x-1,_y+40);
+        crc2.lineTo(_x+1,_y+40);
         crc2.closePath();
         crc2.moveTo(_x,_y);
-        crc2.lineTo(97,104);
-        crc2.lineTo(103,104);
+        crc2.lineTo(_x-3,_y+4);
+        crc2.lineTo(_x+3,_y+4);
         crc2.closePath();
         crc2.fill();
         //crc2.stroke();
     }
 
-
-
+    function drawTrunk(_x: number, _y: number): void {
+        crc2.beginPath();
+        crc2.fillStyle = "rgba(179, 89, 0,1)";
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x , _y - 210);
+        crc2.lineTo(_x-20, _y - 210);
+        crc2.lineTo(_x-20,_y);
+        crc2.closePath();
+        crc2.fill();
+        //crc2.stroke();
+    }
+    
+    function drawCrown(_x: number, _y: number): void {
+        crc2.beginPath();
+        crc2.fillStyle = "rgba(77, 153, 0,1)";
+        crc2.moveTo(_x, _y);
+        crc2.bezierCurveTo(_x + 50 , _y - 10, _x + 30, _y - 30, _x + 50, _y - 40);
+        crc2.bezierCurveTo(_x + 100 , _y - 30, _x + 80, _y - 80, _x + 100, _y - 80);
+        crc2.bezierCurveTo(_x + 100 , _y - 80, _x + 150, _y - 100, _x + 80, _y - 150);
+        crc2.bezierCurveTo(_x + 14 , _y - 170, _x + 30, _y - 220, _x - 20, _y - 200);
+        crc2.lineTo(_x - 20,_y);
+        crc2.closePath();
+        crc2.fill();
+    }
   
 
     
