@@ -29,7 +29,7 @@ namespace Abschluss {
         }
 
         //Schleife Balloon
-        for (let i: number = 0; i < 7; i++) {
+        for (let i: number = 0; i < 5; i++) {
             let balloon: Balloon = new Balloon();
             balloon.x = Math.random() * (90 - 200) + 300;
             balloon.y = Math.random() * 400;
@@ -141,13 +141,6 @@ namespace Abschluss {
         crc2.closePath();
         crc2.fill();
     }
-
-
-
-
-
-
-
 
 }
 
