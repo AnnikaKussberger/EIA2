@@ -1,7 +1,10 @@
 namespace Abschluss {
-    export class Bird {
-        x: number;
-        y: number;
+    export class Bird extends Superclass{
+        
+        constructor() {
+            super();
+            }
+        
 
         move(): void {
 
@@ -25,8 +28,20 @@ namespace Abschluss {
             crc2.fill();
 
         }
+        
+        setRandomPosition(): void{
+            
+            this.x = Math.random() * crc2.canvas.width;
+            this.y = Math.random() * 400;
+            
+            
+            
+        
+        
+        
+        
     }
 }
 
 
-
+}

@@ -1,6 +1,9 @@
 var Abschluss;
 (function (Abschluss) {
-    class Balloon {
+    class Balloon extends Abschluss.Superclass {
+        constructor() {
+            super();
+        }
         move() {
             this.x += 0;
             this.y -= 1;
@@ -8,7 +11,7 @@ var Abschluss;
                 this.y = 350;
             }
         }
-        drawBalloon() {
+        draw() {
             Abschluss.crc2.beginPath();
             Abschluss.crc2.fillStyle = "rgba(51, 153, 255,1)";
             Abschluss.crc2.moveTo(this.x, this.y);
@@ -23,6 +26,10 @@ var Abschluss;
             Abschluss.crc2.closePath();
             Abschluss.crc2.fill();
             //crc2.stroke();
+        }
+        setRandomPosition() {
+            this.x = Math.random() * (90 - 200) + 300;
+            this.y = Math.random() * 400;
         }
     }
     Abschluss.Balloon = Balloon;

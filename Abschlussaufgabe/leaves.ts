@@ -1,8 +1,9 @@
 namespace Abschluss {
-    export class Leaf {
-        x: number;
-        y: number;
+    export class Leaf extends Superclass {
 
+        constructor() {
+            super();
+        }
 
         move(): void {
 
@@ -16,7 +17,7 @@ namespace Abschluss {
 
 
 
-        drawLeaf(): void {
+        draw(): void {
             crc2.beginPath();
             crc2.fillStyle = "rgba(77, 153, 0,1)";
             crc2.moveTo(this.x, this.y);
@@ -25,8 +26,12 @@ namespace Abschluss {
             crc2.fill();
             //crc2.stroke(); 
         }
+
+        setRandomPosition(): void {
+            this.x = Math.random() * (60 - 155) + 127;
+            this.y = Math.random() * (50 - 280) + 550;
+        }
     }
+
+
 }
-
-
-
