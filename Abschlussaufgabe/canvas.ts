@@ -89,7 +89,7 @@ namespace Abschluss {
 
             let differenceX: number = Math.abs(d.positionX - clickX);
             let differenceY: number = Math.abs(d.positionY - clickY);
-            console.log(differenceX);
+            console.log(differenceX);//NaN als ergebnis?
 
             if (differenceX <= 20 && differenceY <= 20) {
                 movingObjects.splice(i, 1);
