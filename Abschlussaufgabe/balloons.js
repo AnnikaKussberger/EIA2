@@ -31,6 +31,10 @@ var Abschluss;
             this.x = Math.random() * (90 - 200) + 300;
             this.y = Math.random() * 400;
         }
+        takePosition() {
+            this.positionX = this.x;
+            this.positionY = this.y;
+        }
     }
     Abschluss.Balloon = Balloon;
 })(Abschluss || (Abschluss = {}));

@@ -4,6 +4,8 @@ namespace Abschluss {
         y: number;
         radius: number;
         color: string; 
+        positionX: number;
+        positionY: number;
         
         
         constructor( ) {
@@ -15,6 +17,9 @@ namespace Abschluss {
             //stehtnixdrin
             
             }
+        takePosition(): void{
+            //steht nix drin
+           }
         move(): void {
             //steht nix drin    
         }

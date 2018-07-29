@@ -42,8 +42,13 @@ namespace Abschluss {
 
 
         }
+        
+        takePosition(): void {
+            this.positionX = this.x;
+            this.positionY = this.y;
+        }
+
+
+
     }
-
-
-
 }

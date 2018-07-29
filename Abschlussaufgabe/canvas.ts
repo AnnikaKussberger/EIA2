@@ -4,7 +4,7 @@ namespace Abschluss {
 
     let movingObjects: Superclass[] = [];
     let imgData: ImageData;
-    let canvas: HTMLCanvasElement;
+    export let canvas: HTMLCanvasElement;
 
 
 
@@ -14,7 +14,7 @@ namespace Abschluss {
         console.log(crc2);
         //canvas.addEventListener("click",)
         console.log(movingObjects)
-        
+
         background();
 
 
@@ -41,9 +41,13 @@ namespace Abschluss {
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         animate();
-        
+
+        canvas.addEventListener("click", removeObject);
+        canvas.addEventListener("touched", removeObject);
+
+
         alert("Oje, Kara hat ihre Luftballons losgelassen! Lasse die aufsteigenden Ballons  platzen indem du darauf Klickst :)");
-        
+
     }
 
 
@@ -73,8 +77,28 @@ namespace Abschluss {
         }
 
     }
+    
+    // nimmt angeklicktes Objekt aus Array raus, wird also nicht mehr gezeichnet
+    function removeObject(_event: MouseEvent): void {
+        for (let i: number = 0; i < movingObjects.length; i++) {
+            let d: Superclass = movingObjects[i];
+
+            let clickX: number = _event.clientX;
+            let clickY: number = _event.clientY;
+            console.log("click funktioniert")
+
+            let differenceX: number = Math.abs(d.positionX - clickX);
+            let differenceY: number = Math.abs(d.positionY - clickY);
+            console.log("tut");
+
+            if (differenceX <= 20 && differenceY <= 20) {
+                movingObjects.splice(i, 1);
+            }
 
 
+        }
+    }
+    
 
 }
 

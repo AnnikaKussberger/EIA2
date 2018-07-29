@@ -8,6 +8,9 @@ var Abschluss;
         setRandomPosition() {
             //stehtnixdrin
         }
+        takePosition() {
+            //steht nix drin
+        }
         move() {
             //steht nix drin    
         }

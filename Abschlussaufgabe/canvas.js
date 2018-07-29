@@ -3,7 +3,6 @@ var Abschluss;
     window.addEventListener("load", init);
     let movingObjects = [];
     let imgData;
-    let canvas;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         Abschluss.crc2 = canvas.getContext("2d");
@@ -28,6 +27,8 @@ var Abschluss;
         }
         imgData = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
         animate();
+        canvas.addEventListener("click", removeObject);
+        canvas.addEventListener("touched", removeObject);
         alert("Oje, Kara hat ihre Luftballons losgelassen! Lasse die aufsteigenden Ballons  platzen indem du darauf Klickst :)");
     }
     function animate() {
@@ -46,6 +47,21 @@ var Abschluss;
     function drawObjects() {
         for (let i = 0; i < movingObjects.length; i++) {
             movingObjects[i].draw();
+        }
+    }
+    // nimmt angeklicktes Objekt aus Array raus, wird also nicht mehr gezeichnet
+    function removeObject(_event) {
+        for (let i = 0; i < movingObjects.length; i++) {
+            let d = movingObjects[i];
+            let clickX = _event.clientX;
+            let clickY = _event.clientY;
+            console.log("click funktioniert");
+            let differenceX = Math.abs(d.positionX - clickX);
+            let differenceY = Math.abs(d.positionY - clickY);
+            console.log("tut");
+            if (differenceX <= 20 && differenceY <= 20) {
+                movingObjects.splice(i, 1);
+            }
         }
     }
 })(Abschluss || (Abschluss = {}));
