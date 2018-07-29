@@ -56,12 +56,12 @@ var Abschluss;
             let clickX = _event.clientX;
             let clickY = _event.clientY;
             console.log(clickX); //funktioniert
-            let differenceX = Math.abs(d.positionX - clickX);
-            let differenceY = Math.abs(d.positionY - clickY);
+            let differenceX = Math.abs(d.x - clickX);
+            let differenceY = Math.abs(d.y - clickY);
             console.log(differenceX); //NaN als ergebnis?
             if (differenceX <= 20 && differenceY <= 20) {
                 movingObjects.splice(i, 1);
-                console.log("entfernt");
+                console.log(movingObjects);
             }
         }
     }
