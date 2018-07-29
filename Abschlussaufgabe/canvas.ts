@@ -46,7 +46,7 @@ namespace Abschluss {
         canvas.addEventListener("touched", removeObject);
 
 
-        alert("Oje, Kara ist ein absoluter Ordungsfanatiker und bekommt von den vielen beweglichen Objekten um sie herum Kopfschmerzen :( Hilf ihr alle Blaetter, Ballons und Voegel verschwinden zu lassen! Klicke dazu einfach auf die Objekte ;)");
+        alert("Oje, Kara ist ein absoluter Ordungsfanatiker und bekommt von den vielen beweglichen Objekten um sie herum Kopfschmerzen :( Hilf ihr alle beweglichen Blaetter, Ballons und Voegel verschwinden zu lassen! Klicke dazu einfach auf die Objekte ;)");
 
         
 
