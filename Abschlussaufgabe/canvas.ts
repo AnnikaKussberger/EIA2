@@ -47,9 +47,9 @@ namespace Abschluss {
 
 
         alert("Oje, Kara ist ein absoluter Ordungsfanatiker und bekommt von den vielen beweglichen Objekten um sie herum Kopfschmerzen :( Hilf ihr alle Blaetter, Ballons und Voegel verschwinden zu lassen! Klicke dazu einfach auf die Objekte ;)");
+
         
-        
-        
+
     }
 
 
@@ -98,7 +98,9 @@ namespace Abschluss {
                 console.log(movingObjects);
             }
 
-
+            if (movingObjects.length == 1) { 
+            alert("Herzlichen Glueckwunsch, du hast es geschafft alle Objekte einzusammeln! um Nochmal zu spielen lade die Seite neu") 
+        }
         }
     }
     

@@ -63,6 +63,9 @@ var Abschluss;
                 movingObjects.splice(i, 1);
                 console.log(movingObjects);
             }
+            if (movingObjects.length == 1) {
+                alert("Herzlichen Glueckwunsch, du hast es geschafft alle Objekte einzusammeln! um Nochmal zu spielen lade die Seite neu");
+            }
         }
     }
 })(Abschluss || (Abschluss = {}));
