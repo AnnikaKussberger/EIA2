@@ -46,8 +46,10 @@ namespace Abschluss {
         canvas.addEventListener("touched", removeObject);
 
 
-        alert("Oje, Kara hat ihre Luftballons losgelassen! Lasse die aufsteigenden Ballons  platzen indem du darauf Klickst :)");
-
+        alert("Oje, Kara ist ein absoluter Ordungsfanatiker und bekommt von den vielen beweglichen Objekten um sie herum Kopfschmerzen :( Hilf ihr alle Blaetter, Ballons und Voegel verschwinden zu lassen! Klicke dazu einfach auf die Objekte ;)");
+        
+        
+        
     }
 
 
@@ -91,7 +93,7 @@ namespace Abschluss {
             let differenceY: number = Math.abs(d.y - clickY);
             console.log(differenceX); //NaN als ergebnis?
 
-            if (differenceX <= 20 && differenceY <= 20) {
+            if (differenceX <= 30 && differenceY <= 30) {
                 movingObjects.splice(i, 1);
                 console.log(movingObjects);
             }
