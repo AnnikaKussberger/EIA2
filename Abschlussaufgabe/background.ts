@@ -5,8 +5,15 @@ namespace Abschluss {
         drawGras(0, 500);
         drawTrunk(20, 510);
         drawCrown(20, 350);
-        drawBalloon(250, 480);
+       // drawBalloon(250, 420);
         drawKid(230, 450);
+        
+        for (let i: number = 0; i < 3; i++) {
+            let x: number = Math.random() * (100 - 180) + 310;
+            let y: number = Math.random() * (100 - 150) + 450;
+            drawBalloon(x, y);
+
+        }
     }
 
 
@@ -64,7 +71,7 @@ namespace Abschluss {
 
     function drawBalloon(_x: number, _y: number): void {
         crc2.beginPath();
-        crc2.fillStyle = "rgba(51, 153, 255,1)";
+        crc2.fillStyle = "rgba(255, 153, 0, 1)";
         crc2.moveTo(_x, _y);
         crc2.bezierCurveTo(_x - 20, _y - 14, _x - 23, _y - 35, _x, _y - 40);
         crc2.bezierCurveTo(_x + 23, _y - 35, _x + 20, _y - 14, _x, _y);
@@ -80,6 +87,7 @@ namespace Abschluss {
     }
     function drawKid(_x: number, _y: number): void {
         crc2.beginPath();
+        crc2.fillStyle = "rgba(255, 77, 77, 1)";
         crc2.moveTo(_x,_y);
         crc2.arc(_x - 15, _y, 15, 0, Math.PI * 2);
         crc2.moveTo(_x - 15,_y + 15);
@@ -87,7 +95,16 @@ namespace Abschluss {
         crc2.lineTo(_x + 4, _y + 70);
         crc2.closePath();
         crc2.moveTo(_x, _y);
-        crc2.stroke();
+        crc2.arc(_x - 25, _y + 75, 5, 0, Math.PI * 2);
+        crc2.moveTo(_x - 5, _y + 75);
+        crc2.arc(_x - 5, _y + 75, 5, 0, Math.PI * 2);
+        crc2.moveTo(_x - 8, _y + 38);
+        crc2.lineTo(_x + 20, _y - 5);
+        crc2.lineTo(_x + 20, _y +2);
+        crc2.lineTo(_x - 8, _y + 41);
+        crc2.closePath();
+        //crc2.stroke();
+        crc2.fill();
         
         } 
     

@@ -6,8 +6,8 @@ var Abschluss;
         }
         move() {
             this.x += 0;
-            this.y += 2;
-            if (this.y < 0) {
+            this.y += 1;
+            if (this.y > 640) {
                 this.y = 350;
             }
         }

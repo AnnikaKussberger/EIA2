@@ -41,7 +41,9 @@ namespace Abschluss {
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         animate();
-
+        
+        alert("Oje, Kara hat ihre Luftballons losgelassen! Lasse die aufsteigenden Ballons  platzen indem du darauf Klickst :)");
+        
     }
 
 

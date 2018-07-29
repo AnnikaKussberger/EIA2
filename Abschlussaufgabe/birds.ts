@@ -9,7 +9,7 @@ namespace Abschluss {
         move(): void {
 
             this.x += 2;
-            this.y += 0;
+            this.y -= 0.2;
 
             if (this.x > 640) {
                 this.x = -40;

@@ -5,8 +5,13 @@ var Abschluss;
         drawGras(0, 500);
         drawTrunk(20, 510);
         drawCrown(20, 350);
-        drawBalloon(250, 480);
+        // drawBalloon(250, 420);
         drawKid(230, 450);
+        for (let i = 0; i < 3; i++) {
+            let x = Math.random() * (100 - 180) + 310;
+            let y = Math.random() * (100 - 150) + 450;
+            drawBalloon(x, y);
+        }
     }
     Abschluss.background = background;
     //ground
@@ -56,7 +61,7 @@ var Abschluss;
     }
     function drawBalloon(_x, _y) {
         Abschluss.crc2.beginPath();
-        Abschluss.crc2.fillStyle = "rgba(51, 153, 255,1)";
+        Abschluss.crc2.fillStyle = "rgba(255, 153, 0, 1)";
         Abschluss.crc2.moveTo(_x, _y);
         Abschluss.crc2.bezierCurveTo(_x - 20, _y - 14, _x - 23, _y - 35, _x, _y - 40);
         Abschluss.crc2.bezierCurveTo(_x + 23, _y - 35, _x + 20, _y - 14, _x, _y);
@@ -72,6 +77,7 @@ var Abschluss;
     }
     function drawKid(_x, _y) {
         Abschluss.crc2.beginPath();
+        Abschluss.crc2.fillStyle = "rgba(255, 77, 77, 1)";
         Abschluss.crc2.moveTo(_x, _y);
         Abschluss.crc2.arc(_x - 15, _y, 15, 0, Math.PI * 2);
         Abschluss.crc2.moveTo(_x - 15, _y + 15);
@@ -79,7 +85,16 @@ var Abschluss;
         Abschluss.crc2.lineTo(_x + 4, _y + 70);
         Abschluss.crc2.closePath();
         Abschluss.crc2.moveTo(_x, _y);
-        Abschluss.crc2.stroke();
+        Abschluss.crc2.arc(_x - 25, _y + 75, 5, 0, Math.PI * 2);
+        Abschluss.crc2.moveTo(_x - 5, _y + 75);
+        Abschluss.crc2.arc(_x - 5, _y + 75, 5, 0, Math.PI * 2);
+        Abschluss.crc2.moveTo(_x - 8, _y + 38);
+        Abschluss.crc2.lineTo(_x + 20, _y - 5);
+        Abschluss.crc2.lineTo(_x + 20, _y + 2);
+        Abschluss.crc2.lineTo(_x - 8, _y + 41);
+        Abschluss.crc2.closePath();
+        //crc2.stroke();
+        Abschluss.crc2.fill();
     }
 })(Abschluss || (Abschluss = {}));
 //# sourceMappingURL=background.js.map
