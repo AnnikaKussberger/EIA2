@@ -81,18 +81,19 @@ namespace Abschluss {
     // nimmt angeklicktes Objekt aus Array raus, wird also nicht mehr gezeichnet
     function removeObject(_event: MouseEvent): void {
         for (let i: number = 0; i < movingObjects.length; i++) {
-            let d: Superclass = movingObjects[i];
+            let d = movingObjects[i];
 
             let clickX: number = _event.clientX;
             let clickY: number = _event.clientY;
-            console.log("click funktioniert")
+            console.log(clickX)//funktioniert
 
             let differenceX: number = Math.abs(d.positionX - clickX);
             let differenceY: number = Math.abs(d.positionY - clickY);
-            console.log("tut");
+            console.log(differenceX);
 
             if (differenceX <= 20 && differenceY <= 20) {
                 movingObjects.splice(i, 1);
+                console.log("entfernt");
             }
 
 

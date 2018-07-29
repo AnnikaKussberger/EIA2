@@ -55,12 +55,13 @@ var Abschluss;
             let d = movingObjects[i];
             let clickX = _event.clientX;
             let clickY = _event.clientY;
-            console.log("click funktioniert");
+            console.log(clickX); //funktioniert
             let differenceX = Math.abs(d.positionX - clickX);
             let differenceY = Math.abs(d.positionY - clickY);
-            console.log("tut");
+            console.log(differenceX);
             if (differenceX <= 20 && differenceY <= 20) {
                 movingObjects.splice(i, 1);
+                console.log("entfernt");
             }
         }
     }
